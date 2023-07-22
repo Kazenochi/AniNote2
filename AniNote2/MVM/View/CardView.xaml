@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="AniNote2.MVM.View.CardView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AniNote2.MVM.View"
+    xmlns:Base="using:AniNote2.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance Type=Base:AnimeItem}">
+
+    <Grid Width = '280'>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = 'Auto'/>
+            <ColumnDefinition Width = '*'/>
+        </Grid.ColumnDefinitions>
+        <Image Source = "/DevAssets/Bungo.jpg" Height = '100' Stretch = 'Fill' VerticalAlignment = 'Top'/>
+        <StackPanel Grid.Column = '1' Margin = '8,0,0,8'>
+            <TextBlock Text = "{Binding Title}" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+
+</UserControl>

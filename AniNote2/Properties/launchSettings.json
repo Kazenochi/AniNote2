@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "AniNote2 (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "AniNote2 (Unpackaged)": {
+      "commandName": "Project"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}
