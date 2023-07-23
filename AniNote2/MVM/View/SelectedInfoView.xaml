@@ -27,27 +27,36 @@
             </Grid.RowDefinitions>
 
             <Button ContextRequested="MyImageButton_ContextRequested" 
+                    CornerRadius="20"
                     HorizontalAlignment="Left"
                     MinHeight="50"
                     MinWidth="50"
                     Padding="0">
-                <Image x:Name="AnimeImage" Source="{Binding SelectedItem.Image}"/>
+                <Image x:Name="AnimeImage" 
+                       Stretch="UniformToFill" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" 
+                       Source="{Binding SelectedItem.Image}"/>
             </Button>
             
             <Grid Grid.Row="1">
                 <StackPanel>
 
                     <TextBlock FontSize="30" 
-                           MaxHeight="100" 
-                           TextTrimming="WordEllipsis" 
-                           TextWrapping="WrapWholeWords" 
-                           Text="{Binding SelectedItem.Title}"/>
+                               MaxHeight="100" 
+                               FontWeight="Bold"
+                               TextTrimming="WordEllipsis" 
+                               TextWrapping="WrapWholeWords" 
+                               Text="{Binding SelectedItem.Title}"/>
+                    
                     <TextBlock Text="Test Text bup bup "/>
+                    
                     <RatingControl HorizontalAlignment="Left"
                                Value="{Binding SelectedItem.Rating, Mode=TwoWay}"
                                IsClearEnabled="False"
                                IsEnabled="{Binding ElementName=ToggleSwitch, Path=IsOn}"
                                IsReadOnly="False"/>
+                    
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Edit Mode" VerticalAlignment="Center" Margin="0,0,15,0"/>
                         <ToggleSwitch x:Name="ToggleSwitch"

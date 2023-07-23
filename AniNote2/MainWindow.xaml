@@ -14,8 +14,24 @@
             <ColumnDefinition MinWidth="350" Width="*"/>
             <ColumnDefinition Width="350"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         
-        <Grid Background="#202020" CornerRadius="10" Margin="10">
+        <Border x:Name="AppTitleBar" 
+                Grid.ColumnSpan="2"
+                VerticalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock x:Name="AppTitle" 
+                           Text="AniNote"
+                           FontWeight="Bold"
+                           FontSize="20"
+                           Margin="15,0,0,0" />
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="1" Background="#202020" CornerRadius="10" Margin="10">
             <ContentControl Content="{Binding animeListView}"/>
 
             <Border Background="#202020"
@@ -61,6 +77,6 @@
             </Border>
         </Grid>
 
-        <ContentControl Grid.Column="1" Content="{Binding selectedInfoView}" HorizontalAlignment="Stretch" Margin="20,10,10,10"/>
+        <ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding selectedInfoView}" HorizontalAlignment="Stretch" Margin="20,10,10,10"/>
     </Grid>
 </Window>

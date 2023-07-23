@@ -16,30 +16,54 @@
             <ColumnDefinition Width = 'Auto'/>
             <ColumnDefinition Width = '*'/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column = "1" Margin = "10,0" HorizontalAlignment="Stretch" Height="Auto">
+        <StackPanel Grid.Column = "1" 
+                    Margin = "10,0" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Center"
+                    >
             
-            <TextBlock Height="30"  Text = "{Binding Title}" />
+            <TextBlock Height="50"
+                       TextWrapping="WrapWholeWords"
+                       TextTrimming="WordEllipsis"
+                       Text = "{Binding Title}" 
+                       FontWeight="Bold"
+                       FontSize="17"/>
             
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="50"/>
-                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 
-                <TextBlock Grid.Column="0" Text = "Episoden" />
+                <TextBlock Grid.Column="0" Text = "Last Episode: " />
                 <TextBlock Grid.Column="1" Text = "{Binding CurrentEpisode}" />
-                <TextBlock Grid.Column="2" Text = "{Binding Episodes}" />
             </Grid>
-            
-            <TextBlock Height="Auto"  Text = "{Binding AirDay}" />
-                
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0"  Text = "Airing Day: " />
+                <TextBlock Grid.Column="1"  Text = "{Binding AirDay}" />
+            </Grid>
+   
             <RatingControl HorizontalAlignment="Left"
                            Value="{Binding Rating}"
                            IsClearEnabled="False"
                            IsReadOnly="True"/>
         </StackPanel>
-        <Image Source = "{Binding Image}" Height = "100" Stretch = "UniformToFill" />
+        <Border CornerRadius="10" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center">
+            <Image Height="110"
+                   Width="80"
+                   Stretch="UniformToFill"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"
+                   Source = "{Binding Image}"/>
+        </Border>
+
 
     </Grid>
 

@@ -35,7 +35,11 @@ namespace AniNote2
 
         public MainWindow()
         {
+            this.ExtendsContentIntoTitleBar = true;
+            this.SetTitleBar(AppTitleBar);
             this.InitializeComponent();
+            
+
             selectedInfoModel = new SelectedInfoModel(this);
             animeListModel = new AnimeListModel(selectedInfoModel);
             StartupLoad();
