@@ -34,5 +34,14 @@ namespace AniNote2.MVM.View
         {    
             ((AnimeListModel)this.DataContext).ChangeSelection(e.ClickedItem as AnimeItem);
         }
+
+        private void ContentGridView_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (CardGridView.Items.Count > 0)
+            {
+                // Set the first item as selected (you can customize this based on your requirements)
+                CardGridView.SelectedIndex = 0;
+            }
+        }
     }
 }

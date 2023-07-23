@@ -38,6 +38,7 @@ namespace AniNote2
             this.InitializeComponent();
             selectedInfoModel = new SelectedInfoModel(this);
             animeListModel = new AnimeListModel(selectedInfoModel);
+            StartupLoad();
             RootPanel.DataContext = this;
             animeListView.DataContext = animeListModel;
             selectedInfoView.DataContext = selectedInfoModel;
@@ -45,13 +46,11 @@ namespace AniNote2
 
         public ICommand AddCommand { get { return new AN_Command.DelegateCommand(o => ListAdd()); } }
         public ICommand DeleteCommand { get { return new AN_Command.DelegateCommand(o => ListDelete()); } }
-        public ICommand RefreshCommand { get { return new AN_Command.DelegateCommand(o => RefreshList()); } }
+        public ICommand SaveCommand { get { return new AN_Command.DelegateCommand(o => SaveList()); } }
 
-        private void RefreshList()
+        private void SaveList()
         {
-            var tmpList = animeListModel.List;
-            animeListModel.List.Clear();
-            animeListModel.List = tmpList;
+            SaveHelper.SaveFile(animeListModel.List);
         }
 
         private void ListAdd()
@@ -62,5 +61,18 @@ namespace AniNote2
         {
             
         }
+
+        private void StartupLoad()
+        {
+            var tmpFile = SaveHelper.LoadFile();
+            if (tmpFile != null) 
+            { 
+                animeListModel.List = tmpFile; 
+                selectedInfoModel.SelectedItem = animeListModel.List.ElementAt(0);
+            }
+                
+
+        }
+
     }
 }

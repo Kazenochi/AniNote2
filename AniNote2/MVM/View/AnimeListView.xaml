@@ -11,16 +11,16 @@
     d:DataContext="{d:DesignInstance Type=ViewModel:AnimeListModel}">
 
     <Grid>
-        <GridView
-            x:Name="ContentGridView"
-            ItemsSource="{Binding List}"
-            IsItemClickEnabled="True"
-            ItemClick="ContentGridView_ItemClick"
-            CanDragItems="True"
-            AllowDrop="True"
-            CanReorderItems="True"
-            SelectionMode="Single"        
-            FlowDirection="LeftToRight">
+        <GridView x:Name="CardGridView" 
+                    Loaded="ContentGridView_Loaded"
+                    ItemsSource="{Binding List}"
+                    IsItemClickEnabled="True"
+                    ItemClick="ContentGridView_ItemClick"
+                    CanDragItems="True"
+                    AllowDrop="True"
+                    CanReorderItems="True"
+                    SelectionMode="Single"        
+                    FlowDirection="LeftToRight">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:CardView">
                     <local:CardView/>
