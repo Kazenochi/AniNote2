@@ -7,6 +7,9 @@ using System.Windows.Input;
 
 namespace AniNote2.Base
 {
+    /// <summary>
+    /// Boilerplate for Commands
+    /// </summary>
     internal class AN_Command
     {
         public class DelegateCommand : ICommand

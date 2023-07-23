@@ -3,6 +3,9 @@
 
 namespace AniNote2.Base
 {
+    /// <summary>
+    /// Boilerplate for bindings / changeevents
+    /// </summary>
     public class ObserverNotifyChange : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;

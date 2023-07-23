@@ -18,6 +18,9 @@ using Windows.Foundation.Collections;
 
 namespace AniNote2.MVM.View
 {
+    /// <summary>
+    /// Preview for the Cardobjects
+    /// </summary>
     public sealed partial class CardView : UserControl
     {
         public CardView()

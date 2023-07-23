@@ -1,3 +1,5 @@
+using AniNote2.Base;
+using AniNote2.MVM.ViewModel;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -18,11 +20,19 @@ using Windows.Foundation.Collections;
 
 namespace AniNote2.MVM.View
 {
+    /// <summary>
+    /// Main view for the <see cref="CardView"/> items
+    /// </summary>
     public sealed partial class AnimeListView : UserControl
     {
         public AnimeListView()
         {
             this.InitializeComponent();
+        }
+
+        private void ContentGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {    
+            ((AnimeListModel)this.DataContext).ChangeSelection(e.ClickedItem as AnimeItem);
         }
     }
 }

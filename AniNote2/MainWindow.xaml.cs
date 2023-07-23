@@ -28,21 +28,39 @@ namespace AniNote2
     public sealed partial class MainWindow : Window
     {
         public AnimeListView animeListView { get; set; } = new();
-        public ListModel listModel { get; set; } = new();
+        public AnimeListModel animeListModel { get; set; }
+        public SelectedInfoView selectedInfoView { get; set; } = new();
+        public SelectedInfoModel selectedInfoModel { get; set; }
+        
 
         public MainWindow()
         {
             this.InitializeComponent();
+            selectedInfoModel = new SelectedInfoModel(this);
+            animeListModel = new AnimeListModel(selectedInfoModel);
             RootPanel.DataContext = this;
-            animeListView.DataContext = listModel;
+            animeListView.DataContext = animeListModel;
+            selectedInfoView.DataContext = selectedInfoModel;
         }
 
-        public ICommand ButtonPressedCommand { get { return new AN_Command.DelegateCommand(o => Press()); } }
+        public ICommand AddCommand { get { return new AN_Command.DelegateCommand(o => ListAdd()); } }
+        public ICommand DeleteCommand { get { return new AN_Command.DelegateCommand(o => ListDelete()); } }
+        public ICommand RefreshCommand { get { return new AN_Command.DelegateCommand(o => RefreshList()); } }
 
-        private void Press()
+        private void RefreshList()
         {
-            listModel.List.Add(new AnimeItem());
+            var tmpList = animeListModel.List;
+            animeListModel.List.Clear();
+            animeListModel.List = tmpList;
         }
 
+        private void ListAdd()
+        {
+            animeListModel.List.Add(new AnimeItem());
+        }
+        private void ListDelete()
+        {
+            
+        }
     }
 }

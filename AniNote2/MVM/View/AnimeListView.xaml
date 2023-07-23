@@ -8,13 +8,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DataContext="{d:DesignInstance Type=ViewModel:ListModel}">
+    d:DataContext="{d:DesignInstance Type=ViewModel:AnimeListModel}">
 
     <Grid>
         <GridView
             x:Name="ContentGridView"
             ItemsSource="{Binding List}"
             IsItemClickEnabled="True"
+            ItemClick="ContentGridView_ItemClick"
             CanDragItems="True"
             AllowDrop="True"
             CanReorderItems="True"
