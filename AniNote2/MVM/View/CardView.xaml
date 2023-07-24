@@ -19,17 +19,16 @@
         <StackPanel Grid.Column = "1" 
                     Margin = "10,0" 
                     HorizontalAlignment="Stretch" 
-                    VerticalAlignment="Center"
-                    >
+                    VerticalAlignment="Center">
             
-            <TextBlock Height="50"
+            <TextBlock MaxHeight="50"
                        TextWrapping="WrapWholeWords"
                        TextTrimming="WordEllipsis"
                        Text = "{Binding Title}" 
                        FontWeight="Bold"
                        FontSize="17"/>
             
-            <Grid>
+            <Grid Margin="0,2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -38,7 +37,7 @@
                 <TextBlock Grid.Column="0" Text = "Last Episode: " />
                 <TextBlock Grid.Column="1" Text = "{Binding CurrentEpisode}" />
             </Grid>
-            <Grid>
+            <Grid Margin="0,2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -50,7 +49,6 @@
    
             <RatingControl HorizontalAlignment="Left"
                            Value="{Binding Rating}"
-                           IsClearEnabled="False"
                            IsReadOnly="True"/>
         </StackPanel>
         <Border CornerRadius="10" 

@@ -7,4 +7,5 @@
 
     <base:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
     <base:BoolInverter x:Key="BoolInverter"/>
+    <base:BoolToDayConverter x:Key="BoolToDayConverter"/>
 </ResourceDictionary>

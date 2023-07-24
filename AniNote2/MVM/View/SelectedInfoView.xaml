@@ -45,24 +45,32 @@
                     <TextBlock FontSize="30" 
                                MaxHeight="100" 
                                FontWeight="Bold"
-                               TextTrimming="WordEllipsis" 
+                               TextTrimming="CharacterEllipsis" 
                                TextWrapping="WrapWholeWords" 
                                Text="{Binding SelectedItem.Title}"/>
-                    
-                    <TextBlock Text="Test Text bup bup "/>
-                    
-                    <RatingControl HorizontalAlignment="Left"
-                               Value="{Binding SelectedItem.Rating, Mode=TwoWay}"
-                               IsClearEnabled="False"
-                               IsEnabled="{Binding ElementName=ToggleSwitch, Path=IsOn}"
-                               IsReadOnly="False"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Spacing="2" Margin="0,10">
+                            <Button CornerRadius="15" Content="Mo" Tag="Monday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Monday}"/>
+                            <Button CornerRadius="15" Content="Tu" Tag="Tuesday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Tuesday}"/>
+                            <Button CornerRadius="15" Content="We" Tag="Wednesday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Wednesday}"/>
+                            <Button CornerRadius="15" Content="Th" Tag="Thursday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Thursday}"/>
+                            <Button CornerRadius="15" Content="Fr" Tag="Friday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Friday}"/>
+                            <Button CornerRadius="15" Content="Sa" Tag="Saturday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Saturday}"/>
+                            <Button CornerRadius="15" Content="Su" Tag="Sunday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Sunday}"/>
+                        </StackPanel>
+
+                        <RatingControl HorizontalAlignment="Left"
+                                   Value="{Binding SelectedItem.Rating, Mode=TwoWay}"
+                                   IsClearEnabled="False"
+                                   IsEnabled="{Binding ElementName=ToggleSwitch, Path=IsOn}"
+                                   IsReadOnly="False"/>
                     
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Edit Mode" VerticalAlignment="Center" Margin="0,0,15,0"/>
                         <ToggleSwitch x:Name="ToggleSwitch"
-                                  IsOn="{Binding EditMode}" 
-                                  VerticalAlignment="Bottom"/>
+                                      IsOn="{Binding EditMode}" 
+                                      VerticalAlignment="Bottom"/>
                     </StackPanel>
+                    
                     <Grid HorizontalAlignment="Stretch">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -74,42 +82,43 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text="Current Episode" 
-                               VerticalAlignment="Center" 
-                               HorizontalAlignment="Left"/>
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Left"/>
                         <NumberBox Grid.Column="1" 
-                               Margin="0,10"
-                               Height="30"
-                               Value="{Binding SelectedItem.CurrentEpisode, Mode=TwoWay}"
-                               SpinButtonPlacementMode="Inline"
-                               SmallChange="1"
-                               LargeChange="10"
-                               Minimum="0"
-                               Maximum="{Binding ElementName=MaxBox, Path=Value}"/>
+                                   Margin="0,10"
+                                   Height="30"
+                                   Value="{Binding SelectedItem.CurrentEpisode, Mode=TwoWay}"
+                                   SpinButtonPlacementMode="Inline"
+                                   SmallChange="1"
+                                   LargeChange="10"
+                                   Minimum="0"
+                                   CornerRadius="15"
+                                   Maximum="{Binding ElementName=MaxBox, Path=Value}"/>
 
                         <TextBlock Grid.Row="1"
-                               Text="Episodes" 
-                               VerticalAlignment="Center"/>
+                                   Text="Episodes" 
+                                   VerticalAlignment="Center"/>
                         <Border Grid.Row="1"
-                            Grid.Column="1"
-                            Height="30"
-                            Background="#202020" 
-                            CornerRadius="5">
-                            <TextBlock 
-                               Margin="11,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="{Binding SelectedItem.Episodes}"
-                               Visibility="{Binding ElementName=ToggleSwitch, Path=IsOn, Converter={StaticResource BoolInverter}}"/>
+                                Grid.Column="1"
+                                Height="30"
+                                Background="#202020" 
+                                CornerRadius="15">
+                            <TextBlock Margin="11,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Text="{Binding SelectedItem.Episodes}"
+                                       Visibility="{Binding ElementName=ToggleSwitch, Path=IsOn, Converter={StaticResource BoolInverter}}"/>
                         </Border>
                         <NumberBox x:Name="MaxBox"
-                               Grid.Row="1"
-                               Grid.Column="1"
-                               Height="30"
-                               Value="{Binding SelectedItem.Episodes, Mode=TwoWay}"
-                               Visibility="{Binding ElementName=ToggleSwitch, Path=IsOn}"
-                               SpinButtonPlacementMode="Inline"
-                               SmallChange="1"
-                               LargeChange="10"
-                               Minimum="0"/>
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   Height="30"
+                                   Value="{Binding SelectedItem.Episodes, Mode=TwoWay}"
+                                   Visibility="{Binding ElementName=ToggleSwitch, Path=IsOn}"
+                                   SpinButtonPlacementMode="Inline"
+                                   SmallChange="1"
+                                   LargeChange="10"
+                                   CornerRadius="15"
+                                   Minimum="0"/>
                     </Grid>
                     
                     <StackPanel x:Name="ConfigPanel"
@@ -119,13 +128,16 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="Title"/>
+                                <TextBlock Text="Title"
+                                       Margin="10,0,0,2"
+                                       FontWeight="Bold"/>
                             <TextBox Grid.Row="1"
-                                 Text="{Binding SelectedItem.Title, Mode=TwoWay}"
-                                 HorizontalAlignment="Left"
-                                 Width="300"
-                                 Height="35"
-                                 IsEnabled="True"/>
+                                     Text="{Binding SelectedItem.Title, Mode=TwoWay}"
+                                     HorizontalAlignment="Left"
+                                     Width="300"
+                                     Height="30"
+                                     CornerRadius="15"
+                                     IsEnabled="True"/>
                         </Grid>
                     
                         <Grid Margin="0,10">
@@ -133,12 +145,16 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="AirDay"/>
+                                <TextBlock Text="AirDay"
+                                       Margin="10,0,0,2"
+                                       FontWeight="Bold"/>
                             <ComboBox Grid.Row="1"
                                       SelectedValue="{Binding SelectedItem.AirDay, Mode=TwoWay}"
+                                      PlaceholderText="Select day of the week"
                                       ItemsSource="{Binding WeekDays}"
-                                      Height="35"
-                                      Width="300">
+                                      Height="34"
+                                      Width="300"
+                                      CornerRadius="17">
                             </ComboBox>
                         </Grid>
                     
@@ -147,13 +163,17 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="Url 1"/>
+                                <TextBlock Text="Url 1"
+                                       Margin="10,0,0,2"
+                                       FontWeight="Bold"/>
                             <TextBox Grid.Row="1"
-                                 Text="{Binding SelectedItem.Url1, Mode=TwoWay}"
-                                 HorizontalAlignment="Left"
-                                 Width="300"
-                                 Height="35"
-                                 IsEnabled="True"/>
+                                     Text="{Binding SelectedItem.Url1, Mode=TwoWay}"
+                                     HorizontalAlignment="Left"
+                                     VerticalContentAlignment="Center"
+                                     Width="300"
+                                     Height="30"
+                                     CornerRadius="15"
+                                     IsEnabled="True"/>
                         </Grid>
 
                         <Grid Margin="0,10">
@@ -161,26 +181,37 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="Url 2"/>
+                            <TextBlock Text="Url 2"
+                                       Margin="10,0,0,2"
+                                       FontWeight="Bold"/>
                             <TextBox Grid.Row="1"
-                                 Text="{Binding SelectedItem.Url2, Mode=TwoWay}"
-                                 HorizontalAlignment="Left"
-                                 Width="300"
-                                 Height="35"
-                                 IsEnabled="True"/>
+                                     Text="{Binding SelectedItem.Url2, Mode=TwoWay}"
+                                     HorizontalAlignment="Left"
+                                     Width="300"
+                                     Height="30"
+                                     CornerRadius="15"
+                                     IsEnabled="True"/>
                         </Grid>
                     </StackPanel>
 
                     <StackPanel x:Name="LinkPanel"
                                 Visibility="{Binding ElementName=ToggleSwitch, Path=IsOn, Converter={StaticResource BoolInverter}}">
-                        <HyperlinkButton Content="{Binding SelectedItem.Url1}"
-                                         NavigateUri="{Binding SelectedItem.Url1}"
-                                         Margin="0,10,0,0"/>
-                        <HyperlinkButton Content="{Binding SelectedItem.Url2}"
-                                         NavigateUri="{Binding SelectedItem.Url2}"
-                                         Margin="0,5,0,0"/>
-                        
-                    </StackPanel>
+                            <HyperlinkButton NavigateUri="{Binding SelectedItem.Url1}"
+                                             Margin="0,10,0,0">
+                                <TextBlock Text="{Binding SelectedItem.Url1}"
+                                           MaxHeight="30"
+                                           TextTrimming="WordEllipsis"
+                                           TextWrapping="WrapWholeWords"/>
+                            </HyperlinkButton>
+                            <HyperlinkButton NavigateUri="{Binding SelectedItem.Url2}"
+                                             Margin="0,5,0,0">
+                                <TextBlock Text="{Binding SelectedItem.Url2}"
+                                           MaxHeight="30"
+                                           TextTrimming="WordEllipsis"
+                                           TextWrapping="WrapWholeWords"/>
+                            </HyperlinkButton>
+
+                        </StackPanel>
                 </StackPanel>
             </Grid>
         </Grid>

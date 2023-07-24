@@ -12,16 +12,17 @@
     <Grid  d:DataContext="{d:DesignInstance Type=local:MainWindow}" x:Name="RootPanel" Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="350" Width="*"/>
-            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <Border x:Name="AppTitleBar" 
-                Grid.ColumnSpan="2"
-                VerticalAlignment="Stretch">
+        <Border x:Name="AppTitleBar"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock x:Name="AppTitle" 
                            Text="AniNote"
@@ -77,6 +78,10 @@
             </Border>
         </Grid>
 
-        <ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding selectedInfoView}" HorizontalAlignment="Stretch" Margin="20,10,10,10"/>
+        <ContentControl Grid.Column="1" 
+                        Grid.Row="1" 
+                        Content="{Binding selectedInfoView}" 
+                        HorizontalAlignment="Stretch" 
+                        Margin="20,10,10,10"/>
     </Grid>
 </Window>

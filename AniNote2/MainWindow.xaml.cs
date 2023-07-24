@@ -31,14 +31,12 @@ namespace AniNote2
         public AnimeListModel animeListModel { get; set; }
         public SelectedInfoView selectedInfoView { get; set; } = new();
         public SelectedInfoModel selectedInfoModel { get; set; }
-        
 
         public MainWindow()
         {
-            this.ExtendsContentIntoTitleBar = true;
-            this.SetTitleBar(AppTitleBar);
             this.InitializeComponent();
-            
+            ExtendsContentIntoTitleBar = true;
+            SetTitleBar(AppTitleBar);
 
             selectedInfoModel = new SelectedInfoModel(this);
             animeListModel = new AnimeListModel(selectedInfoModel);
@@ -73,10 +71,7 @@ namespace AniNote2
             { 
                 animeListModel.List = tmpFile; 
                 selectedInfoModel.SelectedItem = animeListModel.List.ElementAt(0);
-            }
-                
-
+            }              
         }
-
     }
 }
