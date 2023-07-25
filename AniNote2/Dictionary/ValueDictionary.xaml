@@ -8,4 +8,6 @@
     <base:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
     <base:BoolInverter x:Key="BoolInverter"/>
     <base:BoolToDayConverter x:Key="BoolToDayConverter"/>
+    <FontFamily x:Key="Default">/Assets/Nunito-VariableFont_wght.ttf#Nunito</FontFamily>
+    
 </ResourceDictionary>
