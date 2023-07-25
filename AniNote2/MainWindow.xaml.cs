@@ -41,40 +41,5 @@ namespace AniNote2
             mainPage.DataContext = model;
         }
 
-        private void ListDelete()
-        {
-            
-        }
-
-
-        /*
-        /// <summary>
-        /// Not Working
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-          string searchText = SearchTextBox.Text;
-            if (searchText.Length > 2)
-            {
-                tmpOriginalList.Clear();
-                foreach (var item in animeListModel.List) 
-                {
-                    tmpOriginalList.Add(item);
-                }
-                animeListModel.List.Clear();
-                var result = SearchHelper.GetSearchResult(tmpOriginalList, searchText);
-
-                foreach (var item in animeListModel.List) 
-                { 
-                    animeListModel.List.Add(item); 
-                }
-            }
-            else if(tmpOriginalList.Count > 0)
-            {
-                animeListModel.List = tmpOriginalList;
-            } 
-        }*/
     }
 }

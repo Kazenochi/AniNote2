@@ -45,8 +45,9 @@ namespace AniNote2.MVM.ViewModel
             if (tmpFile != null)
             {
                 animeListModel.List = tmpFile;
-                selectedInfoModel.SelectedItem = animeListModel.List.ElementAt(0);
+                //selectedInfoModel.SelectedItem = animeListModel.List.ElementAt(0);
             }
+            selectedInfoModel.SelectedItem = animeListModel.List.ElementAt(0);
         }
 
         private void SaveNewCard()
