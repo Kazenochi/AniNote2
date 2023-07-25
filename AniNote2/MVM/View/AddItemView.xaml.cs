@@ -14,6 +14,8 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using AniNote2.MVM.ViewModel;
 using Microsoft.UI;
+using AniNote2.Base;
+using Windows.Storage;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -23,11 +25,14 @@ namespace AniNote2.MVM.View
     public sealed partial class AddItemView : UserControl
     {
         public AnimeItem AnimeItem { get; set; }
-        public AddItemView(AnimeItem animeItem)
+        private MainWindow _mainWindow;
+
+        public AddItemView(AnimeItem animeItem, MainWindow MW)
         {
             this.InitializeComponent();
             this.AnimeItem = animeItem;
             this.DataContext = AnimeItem;
+            this._mainWindow = MW;
         }
 
         private void RadioButtons_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -57,6 +62,15 @@ namespace AniNote2.MVM.View
                 case "Sunday":
                     AnimeItem.AirDay = DayOfWeek.Sunday;
                     break;
+            }
+        }
+
+        private async void ButtonImage_Click(object sender, RoutedEventArgs e)
+        {
+            StorageFile file = await FilePickHelper.SingleFile(_mainWindow);
+            if (file != null)
+            {
+                AnimeItem.Image = ImageHelper.load(file.Path);
             }
         }
     }

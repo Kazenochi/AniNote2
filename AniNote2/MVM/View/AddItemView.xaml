@@ -26,6 +26,7 @@
                 MinWidth="100"
                 VerticalAlignment="Center" 
                 HorizontalAlignment="Center"
+                    Click="ButtonImage_Click"
                 CornerRadius="25">
                 <Grid CornerRadius="20">
                     <Viewbox Height="100">
@@ -42,21 +43,27 @@
                         <TextBlock Text="Title/Name"
                                FontWeight="Bold"
                                FontSize="35"/>
-                        <TextBox FontSize="20" CornerRadius="20"/>
+                        <TextBox FontSize="20" 
+                                 CornerRadius="20"
+                                 Text="{Binding Title}"/>
                     </StackPanel>
 
                     <StackPanel Spacing="10" Margin="20,0">
                         <TextBlock Text="Url 1"
                                FontSize="35"
                                FontWeight="bold"/>
-                        <TextBox FontSize="20" CornerRadius="20"/>
+                        <TextBox FontSize="20" 
+                                 CornerRadius="20"
+                                 Text="{Binding Url1}"/>
                     </StackPanel>
 
                     <StackPanel Spacing="10" Margin="20,0">
                         <TextBlock Text="Url 2"
                                FontSize="35"
                                FontWeight="bold"/>
-                        <TextBox FontSize="20" CornerRadius="20"/>
+                        <TextBox FontSize="20" 
+                                 CornerRadius="20"
+                                 Text="{Binding Url2}"/>
                     </StackPanel>
 
                     <StackPanel Spacing="10" Margin="20,0">
