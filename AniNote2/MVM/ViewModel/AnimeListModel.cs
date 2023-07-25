@@ -18,13 +18,16 @@ namespace AniNote2.MVM.ViewModel
     /// <summary>
     /// ContextData for <see cref="MVM.View.AnimeListView"/>
     /// </summary>
-    public class AnimeListModel
+    public class AnimeListModel : ObserverNotifyChange
     {
-        public ObservableCollection<AnimeItem> List { get; set; } = new();
+        private ObservableCollection<AnimeItem> _list;
+        public ObservableCollection<AnimeItem> List { get { return _list; } set { _list = value; RaisePropertyChanged(nameof(List)); } }
+
         private SelectedInfoModel _selectedInfoModel;
 
         public AnimeListModel(SelectedInfoModel selectedInfoModel)
         {
+            _list = new ObservableCollection<AnimeItem>();
             _selectedInfoModel = selectedInfoModel;
 
             AnimeItem item1 = new AnimeItem();
