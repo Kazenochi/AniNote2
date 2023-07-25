@@ -27,86 +27,27 @@ namespace AniNote2
     /// <summary>
     /// An empty window that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainWindow : Window, INotifyPropertyChanged
+    public sealed partial class MainWindow : Window
     {
-        public AnimeListView animeListView { get; set; } = new();
-        public AnimeListModel animeListModel { get; set; }
-        public SelectedInfoView selectedInfoView { get; set; } = new();
-        public SelectedInfoModel selectedInfoModel { get; set; }
-
-        private bool _customViewActive = false;
-        public bool CustomViewActive { get { return _customViewActive; } set { _customViewActive = value; RaisePropertyChanged(nameof(CustomViewActive)); } }
-
-        private UserControl _customItemView;
-        public UserControl CustomItemView { get { return _customItemView; } set { _customItemView = value; RaisePropertyChanged(nameof(CustomItemView)); } }
-
-        private ObservableCollection<AnimeItem> tmpOriginalList = new();
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public void RaisePropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        public MainPage mainPage { get; set; } = new MainPage();
+        private MainModel model;
         public MainWindow()
         {
             this.InitializeComponent();
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
-
-            selectedInfoModel = new SelectedInfoModel(this);
-            animeListModel = new AnimeListModel(selectedInfoModel);
-            StartupLoad();
-            RootPanel.DataContext = this;
-            animeListView.DataContext = animeListModel;
-            selectedInfoView.DataContext = selectedInfoModel;
+            this.MainGrid.DataContext = this;
+            model = new MainModel(this);
+            mainPage.DataContext = model;
         }
 
-        public ICommand AddCommand { get { return new AN_Command.DelegateCommand(o => ListAdd()); } }
-        public ICommand DeleteCommand { get { return new AN_Command.DelegateCommand(o => ListDelete()); } }
-        public ICommand SaveCommand { get { return new AN_Command.DelegateCommand(o => SaveList()); } }
-        public ICommand BackCommand { get { return new AN_Command.DelegateCommand(o => Back()); } }
-
-        private void SaveList()
-        {
-            SaveHelper.SaveFile(animeListModel.List);
-        }
-
-        private void Back()
-        {
-            if(CustomViewActive)
-            {
-                CustomViewActive = false;
-                CustomItemView = null;
-            }
-        }
-
-        private void ListAdd()
-        {
-            CustomViewActive = true;
-            AnimeItem tmpAnimeItem = new AnimeItem();
-            AddItemView tmpItemView = new AddItemView(tmpAnimeItem);
-            CustomItemView = tmpItemView;
-            
-            //animeListModel.List.Add(new AnimeItem());
-        }
         private void ListDelete()
         {
             
         }
 
-        private void StartupLoad()
-        {
-            var tmpFile = SaveHelper.LoadFile();
-            if (tmpFile != null) 
-            { 
-                animeListModel.List = tmpFile; 
-                selectedInfoModel.SelectedItem = animeListModel.List.ElementAt(0);
-            }              
-        }
 
+        /*
         /// <summary>
         /// Not Working
         /// </summary>
@@ -134,6 +75,6 @@ namespace AniNote2
             {
                 animeListModel.List = tmpOriginalList;
             } 
-        }
+        }*/
     }
 }
