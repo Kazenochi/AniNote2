@@ -67,7 +67,7 @@ namespace AniNote2.MVM.View
             if (searchText.Length > 0)
             {
                 _searchActive = true;
-                ObservableCollection<AnimeItem> filteredList = new ObservableCollection<AnimeItem>(SearchHelper.GetSearchResult(tmpModel.animeListModel.List, searchText));
+                ObservableCollection<AnimeItem> filteredList = new ObservableCollection<AnimeItem>(SearchHelper.GetSearchResult(fullCardList, searchText));
                 tmpModel.animeListModel.List = filteredList;
             }
             else if (_searchActive)

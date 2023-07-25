@@ -62,7 +62,6 @@
                             <Flyout>
                                 <TextBox x:Name="SearchBox"  Width="200" 
                                          PlaceholderText="Search text"
-                                         Dis
                                          TextChanged="SearchBox_TextChanged">
                                     
                                 </TextBox>
