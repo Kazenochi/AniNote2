@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    FontSize="15"
     d:DataContext="{d:DesignInstance Type=vm:MainModel}">
 
     <Grid x:Name="RootPanel" Background="Black">
@@ -36,8 +37,11 @@
                             CornerRadius="50" 
                             Height="60" Width="60" 
                             Command="{Binding AddCommand}" 
-                            VerticalAlignment="Bottom">
-                        <Image Source="\Resources\Icons_Plus.png" Margin="5"/>
+                            VerticalAlignment="Bottom"
+                            Style="{StaticResource AccentButtonStyle}">
+                        <Viewbox>
+                            <FontIcon Glyph="&#xF8AA;"/>
+                        </Viewbox>
                     </Button>
 
                     <Button Margin="10,0"
@@ -45,8 +49,11 @@
                             CornerRadius="50" 
                             Height="60" Width="60" 
                             Command="{Binding DeleteCommand}" 
-                            VerticalAlignment="Bottom">
-                        <Image Source="\Resources\Icons_Delete.png" Margin="5"/>
+                            VerticalAlignment="Bottom"
+                            Style="{StaticResource AccentButtonStyle}">
+                        <Viewbox>
+                            <FontIcon Glyph="&#xE74D;"/>
+                        </Viewbox>
                     </Button>
                     
                     <Button Margin="10,0"
@@ -54,7 +61,8 @@
                             CornerRadius="50" 
                             Height="60" Width="60" 
                             Command="{Binding DeleteCommand}" 
-                            VerticalAlignment="Bottom">
+                            VerticalAlignment="Bottom"
+                            Style="{StaticResource AccentButtonStyle}">
                         <Viewbox>
                             <FontIcon Glyph="&#xF78B;"/>
                         </Viewbox>
@@ -103,10 +111,11 @@
                             FontSize="50"
                             CornerRadius="50" 
                             Height="60" Width="60" 
-                            VerticalAlignment="Bottom" Padding="0,0,10,0"
-                            Click="ButtonBack_Click">
+                            VerticalAlignment="Bottom" Padding="0,0,5,0"
+                            Click="ButtonBack_Click"
+                            Style="{StaticResource AccentButtonStyle}">
                         <Viewbox>
-                            <FontIcon Glyph="&#xE96F;"/>
+                            <FontIcon Glyph="&#xE973;"/>
                         </Viewbox>
                     </Button>
 
@@ -115,7 +124,8 @@
                             CornerRadius="50" 
                             Height="60" Width="60" 
                             Command="{Binding SaveCommand}" 
-                            VerticalAlignment="Bottom">
+                            VerticalAlignment="Bottom"
+                            Style="{StaticResource AccentButtonStyle}">
                         <Viewbox>
                             <FontIcon Glyph="&#xE74E;"/>
                         </Viewbox>

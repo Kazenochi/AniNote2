@@ -23,11 +23,11 @@
             </Grid.RowDefinitions>
 
             <Button MinHeight="100" 
-                MinWidth="100"
-                VerticalAlignment="Center" 
-                HorizontalAlignment="Center"
+                    MinWidth="100"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center"
                     Click="ButtonImage_Click"
-                CornerRadius="25">
+                    CornerRadius="25">
                 <Grid CornerRadius="20">
                     <Viewbox Height="100">
                         <FontIcon Glyph="&#xE8B9;"/>
