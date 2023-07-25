@@ -44,12 +44,7 @@ namespace AniNote2.MVM.ViewModel
         public DayOfWeek AirDay { get { return _airDay; } set { _airDay = value; RaisePropertyChanged(nameof(AirDay)); } }
 
         public AnimeItem() { 
-            this.Image = new BitmapImage(new Uri("ms-appx:///DevAssets/Bungo.jpg"));
-            this.Title = "TestTitle";
-            this.Episodes = 12;
-            this.CurrentEpisode = 4;
-            this.Url1 = "https://www.google.de";
-            this.Url2 = "https://www.google.de";
+            this.AirDay = DayOfWeek.Monday;
         }
     }
 }

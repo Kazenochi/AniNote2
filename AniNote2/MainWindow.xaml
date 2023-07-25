@@ -32,7 +32,8 @@
             </StackPanel>
         </Border>
 
-        <Grid Grid.Row="1" Background="#202020" CornerRadius="10" Margin="10">
+        <Grid x:Name="LeftPane" Grid.Row="1" Background="#202020" CornerRadius="10" Margin="10">
+
             <ContentControl Content="{Binding animeListView}"/>
 
             <Border Background="#202020"
@@ -44,7 +45,7 @@
                         HorizontalAlignment="Right">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    
+
                     <Button Margin="10,0"
                             FontSize="50"
                             CornerRadius="50" 
@@ -63,18 +64,38 @@
                         <Image Source="\Resources\Icons_Delete.png" Margin="5"/>
                     </Button>
 
-                    <Button Margin="10,0"
-                            FontSize="50"
-                            CornerRadius="50" 
-                            Height="60" Width="60"               
-                            Command="{Binding SaveCommand}"
-                            VerticalAlignment="Bottom">
-                        <Viewbox Height="40">
-                            <SymbolIcon Symbol="Save"/>
-                        </Viewbox>
-                        
-                    </Button>
                 </StackPanel>
+            </Border>
+
+            <!--Disabled-->
+            <Border Visibility="Collapsed"
+                x:Name="SearchField" 
+                    Grid.Row="1"
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Right"
+                    Background="#202020"
+                    CornerRadius="20"
+                    Margin="10">
+                <Grid>
+                    <TextBox x:Name="SearchTextBox"
+                             TextChanged="SearchTextBox_TextChanged"
+                             Width="300" 
+                             Height="40" 
+                             PlaceholderText="Search"
+                             FontSize="20"
+                             VerticalAlignment="Center" 
+                             HorizontalAlignment="Right">
+                    </TextBox>
+                    <Button HorizontalAlignment="Right" 
+                            Margin="00,0"
+                            Width="40"
+                            Height="40"
+                            CornerRadius="20">
+                        <Viewbox Height="40">
+                            <FontIcon Glyph="&#xF78B;" />
+                        </Viewbox>
+                    </Button>
+                </Grid>
             </Border>
         </Grid>
 
@@ -83,5 +104,55 @@
                         Content="{Binding selectedInfoView}" 
                         HorizontalAlignment="Stretch" 
                         Margin="20,10,10,10"/>
+            
+        <Grid x:Name="Overlay" Grid.Row="1" Grid.ColumnSpan="2">
+            <Rectangle x:Name="HidePane"
+                       Fill="{ThemeResource AcrylicInAppFillColorDefaultBrush}" 
+                       Opacity=".98"
+                       Visibility="{Binding CustomViewActive, Converter={StaticResource BoolVisibilityConverter}}"/>
+
+
+            <ContentControl Content="{Binding CustomItemView}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+            
+            <Border Background="#202020"
+                    Opacity=".9"
+                    Height="70" 
+                    CornerRadius="35" 
+                    Margin="20"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="2"
+                    Visibility="{Binding CustomViewActive, Converter={StaticResource BoolVisibilityConverter}}">
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                    <Button Margin="10,0"
+                            FontSize="50"
+                            CornerRadius="50" 
+                            Height="60" Width="60" 
+                            Command="{Binding BackCommand}"
+                            VerticalAlignment="Bottom" Padding="0,0,10,0">
+                        <Viewbox>
+                            <FontIcon Glyph="&#xE96F;"/>
+                        </Viewbox>
+
+                    </Button>
+
+                    <Button Margin="10,0"
+                            FontSize="50"
+                            CornerRadius="50" 
+                            Height="60" Width="60" 
+                            Command="{Binding DeleteCommand}" 
+                            VerticalAlignment="Bottom">
+                        <Viewbox>
+                            <FontIcon Glyph="&#xE74E;"/>
+                        </Viewbox>
+                    </Button>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+            
     </Grid>
 </Window>
