@@ -38,7 +38,7 @@
         Description="AniNote2"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"  ShortName="AniNote" Square310x310Logo="Assets\StoreLogo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"  ShortName="AniNote" Square310x310Logo="Assets\StoreLogo.png" Square71x71Logo="Assets\SplashScreen.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>
             <uap:ShowOn Tile="wide310x150Logo"/>
@@ -46,6 +46,7 @@
           </uap:ShowNameOnTiles>
         </uap:DefaultTile >
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:LockScreen BadgeLogo="Assets\Square44x44Logo.png" Notification="badge"/>
       </uap:VisualElements>
     </Application>
   </Applications>

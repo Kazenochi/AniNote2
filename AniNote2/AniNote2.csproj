@@ -24,7 +24,6 @@
     <Content Remove="Assets\Square44x44Logo.scale-100.png" />
     <Content Remove="Assets\Square44x44Logo.scale-125.png" />
     <Content Remove="Assets\Square44x44Logo.scale-150.png" />
-    <Content Remove="Assets\Square44x44Logo.scale-400.png" />
     <Content Remove="Assets\Square44x44Logo.targetsize-16.png" />
     <Content Remove="Assets\Square44x44Logo.targetsize-24.png" />
     <Content Remove="Assets\Square44x44Logo.targetsize-256.png" />
@@ -32,6 +31,8 @@
     <Content Remove="Assets\Square44x44Logo.targetsize-48.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\SplashScreen.scale-400.png" />
+    <None Remove="Assets\Square44x44Logo.scale-400.png" />
     <None Remove="Assets\StoreLogo.scale-100.png" />
     <None Remove="DevAssets\Bungo.jpg" />
     <None Remove="DevAssets\Healer.jpg" />
