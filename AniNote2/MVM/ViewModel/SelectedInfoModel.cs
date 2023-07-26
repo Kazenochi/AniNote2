@@ -35,7 +35,6 @@ namespace AniNote2.MVM.ViewModel
 
         public ICommand ChangeLocalCommand { get { return new AN_Command.DelegateCommand(o => ChangeImageLocal()); } }
         public ICommand ChangeInternetCommand { get { return new AN_Command.DelegateCommand(o => ChangeImageInternet()); } }
-        public ICommand DeleteEntryCommand { get { return new AN_Command.DelegateCommand(o => DeleteEntry()); } }
 
         private async void ChangeImageLocal()
         {
@@ -59,10 +58,6 @@ namespace AniNote2.MVM.ViewModel
         }
 
         private void ChangeImageInternet()
-        {
-
-        }
-        private void DeleteEntry()
         {
 
         }

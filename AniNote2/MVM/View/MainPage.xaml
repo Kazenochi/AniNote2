@@ -47,20 +47,7 @@
                     <Button Margin="10,0"
                             FontSize="50"
                             CornerRadius="50" 
-                            Height="60" Width="60" 
-                            Command="{Binding DeleteCommand}" 
-                            VerticalAlignment="Bottom"
-                            Style="{StaticResource AccentButtonStyle}">
-                        <Viewbox>
-                            <FontIcon Glyph="&#xE74D;"/>
-                        </Viewbox>
-                    </Button>
-                    
-                    <Button Margin="10,0"
-                            FontSize="50"
-                            CornerRadius="50" 
-                            Height="60" Width="60" 
-                            Command="{Binding DeleteCommand}" 
+                            Height="60" Width="60"
                             VerticalAlignment="Bottom"
                             Style="{StaticResource AccentButtonStyle}">
                         <Viewbox>
@@ -71,12 +58,23 @@
                                 <TextBox x:Name="SearchBox"  Width="200" 
                                          PlaceholderText="Search text"
                                          TextChanged="SearchBox_TextChanged">
-                                    
                                 </TextBox>
                             </Flyout>
                         </Button.Flyout>
                     </Button>
                     
+                    <Button Margin="10,0"
+                            FontSize="50"
+                            CornerRadius="50" 
+                            Height="60" Width="60" 
+                            VerticalAlignment="Bottom"
+                            Click="ButtonDelete_Click"
+                            Background="{StaticResource SystemAccentColorLight1}"
+                            Style="{StaticResource AccentButtonStyle}">
+                        <Viewbox>
+                            <FontIcon Glyph="&#xE74D;"/>
+                        </Viewbox>
+                    </Button>
                 </StackPanel>
             </Border>
         </Grid>

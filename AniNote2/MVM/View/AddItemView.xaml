@@ -45,7 +45,7 @@
                                FontSize="35"/>
                         <TextBox FontSize="20" 
                                  CornerRadius="20"
-                                 Text="{Binding Title}"/>
+                                 Text="{Binding Title, Mode=TwoWay}"/>
                     </StackPanel>
 
                     <StackPanel Spacing="10" Margin="20,0">
@@ -54,7 +54,7 @@
                                FontWeight="bold"/>
                         <TextBox FontSize="20" 
                                  CornerRadius="20"
-                                 Text="{Binding Url1}"/>
+                                 Text="{Binding Url1, Mode=TwoWay}"/>
                     </StackPanel>
 
                     <StackPanel Spacing="10" Margin="20,0">
@@ -63,7 +63,7 @@
                                FontWeight="bold"/>
                         <TextBox FontSize="20" 
                                  CornerRadius="20"
-                                 Text="{Binding Url2}"/>
+                                 Text="{Binding Url2, Mode=TwoWay}"/>
                     </StackPanel>
 
                     <StackPanel Spacing="10" Margin="20,0">

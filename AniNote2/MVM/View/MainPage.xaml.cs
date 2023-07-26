@@ -28,6 +28,7 @@ namespace AniNote2.MVM.View
     {
         private bool _searchActive = false;
         private ObservableCollection<AnimeItem> fullCardList;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -77,6 +78,28 @@ namespace AniNote2.MVM.View
                 {
                     tmpModel.animeListModel.List = fullCardList;
                     fullCardList = null;
+                }
+            }
+        }
+
+        private async void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var dataContext = this.DataContext as MainModel;
+            ContentDialog dialog2 = new ContentDialog();
+            dialog2.XamlRoot = this.XamlRoot;
+            dialog2.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog2.Title = $"Delete \"{dataContext.selectedInfoModel.SelectedItem.Title}\"? This is irreversible!";
+            dialog2.PrimaryButtonText = "No";
+            dialog2.SecondaryButtonText = "Yes";
+            dialog2.DefaultButton = ContentDialogButton.Primary;
+
+            var result = await dialog2.ShowAsync();
+            if (result == ContentDialogResult.Secondary)
+            {
+                dataContext.animeListModel.List.Remove(dataContext.selectedInfoModel.SelectedItem);
+                if(dataContext.animeListModel.List.Count > 0)
+                {
+                    dataContext.selectedInfoModel.SelectedItem = dataContext.animeListModel.List.First();
                 }
             }
         }

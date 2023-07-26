@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -30,16 +31,25 @@ namespace AniNote2
     public sealed partial class MainWindow : Window
     {
         public MainPage mainPage { get; set; } = new MainPage();
-        private MainModel model;
+        private readonly MainModel model;
         public MainWindow()
         {
             this.InitializeComponent();
+            Debug.WriteLine("Marker: App Init Start");
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
             this.MainGrid.DataContext = this;
             model = new MainModel(this);
             mainPage.DataContext = model;
+            AppWindow.Closing += AppWindow_Closing;
+            Debug.WriteLine("Marker: App Init Finished");
         }
 
+        private void AppWindow_Closing(Microsoft.UI.Windowing.AppWindow sender, Microsoft.UI.Windowing.AppWindowClosingEventArgs args)
+        {
+            Debug.WriteLine("App closing");
+            SaveHelper.SaveFile(this.model.animeListModel.List);
+            Debug.WriteLine("App Closed");
+        }
     }
 }

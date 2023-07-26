@@ -22,10 +22,10 @@ namespace AniNote2.MVM.ViewModel
         private string _title;
         public string Title { get { return _title; } set { _title = value; RaisePropertyChanged(nameof(Title)); } }
 
-        private int _episodes;
+        private int _episodes = 12;
         public int Episodes { get { return _episodes; } set { _episodes = value; RaisePropertyChanged(nameof(Episodes)); } }
 
-        private int _currentEpisode;
+        private int _currentEpisode = 1;
         public int CurrentEpisode { get { return _currentEpisode; } set { _currentEpisode = value; RaisePropertyChanged(nameof(CurrentEpisode)); } }
 
         private string _url1;
@@ -40,11 +40,10 @@ namespace AniNote2.MVM.ViewModel
         private int _rating;
         public int Rating { get { return _rating; } set { _rating = value; RaisePropertyChanged(nameof(Rating)); } }
 
-        private DayOfWeek _airDay;
+        private DayOfWeek _airDay = DayOfWeek.Monday;
         public DayOfWeek AirDay { get { return _airDay; } set { _airDay = value; RaisePropertyChanged(nameof(AirDay)); } }
 
         public AnimeItem() { 
-            this.AirDay = DayOfWeek.Monday;
         }
     }
 }

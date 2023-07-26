@@ -3,6 +3,7 @@ using AniNote2.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,22 +17,45 @@ namespace AniNote2.Base
     /// </summary>
     public static class SaveHelper
     {
-        private static string SaveDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        private static readonly string SaveDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         public static void SaveFile(ObservableCollection<AnimeItem> animeItems)
         {
-            if (!Directory.Exists(SaveDir + "\\Saves"))
-                Directory.CreateDirectory(SaveDir + "\\Saves");
+            try
+            {
+                if (!Directory.Exists(SaveDir + "\\Saves"))
+                    Directory.CreateDirectory(SaveDir + "\\Saves");
+            }catch(Exception ex)
+            {
+                Debug.WriteLine($"Save Error Directory: {ex.Message}");
+            }
+            
 
             string jsonString = JsonSerializer.Serialize(animeItems, new JsonSerializerOptions { WriteIndented = true});
             string filePath = SaveDir + "\\Saves\\Cards.json";
-            File.WriteAllText(filePath, jsonString);
+            try
+            {
+                File.WriteAllText(filePath, jsonString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Save Error: {ex.Message}");
+            }
+            
         }
 
         public static ObservableCollection<AnimeItem> LoadFile() 
         {
-            if (!Directory.Exists(SaveDir + "\\Saves"))
-                Directory.CreateDirectory(SaveDir + "\\Saves");
+            try
+            {
+                if (!Directory.Exists(SaveDir + "\\Saves"))
+                    Directory.CreateDirectory(SaveDir + "\\Saves");
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine($"Load Error Directory: {ex.Message}");
+                return null;
+            }
 
             string filePath = SaveDir + "\\Saves\\Cards.json";
             try
@@ -47,11 +71,9 @@ namespace AniNote2.Base
             }
             catch (Exception ex)
             {
+                Debug.WriteLine($"Load Error: {ex.Message}");
                 return null;
             }
-            
-            
-
         }
     }
 }

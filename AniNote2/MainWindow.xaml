@@ -9,7 +9,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-
     <Grid x:Name="MainGrid" d:DataContext="{d:DesignInstance Type=local:MainWindow}">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -21,11 +20,13 @@
                 HorizontalAlignment="Stretch"
                 Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock x:Name="AppTitle" 
+                <Image Source="/Assets/SplashScreen.scale-400.png" Margin="5"/>
+                <TextBlock x:Name="AppTitle"
+                           FontFamily="{StaticResource Default}"
                            Text="AniNote"
-                           FontWeight="Bold"
+                           FontWeight="ExtraBold"
                            FontSize="20"
-                           Margin="15,0,0,0" />
+                           VerticalAlignment="Center"/>
             </StackPanel>
         </Border>
 

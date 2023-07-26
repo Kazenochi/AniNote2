@@ -8,7 +8,7 @@ namespace AniNote2.Base
     /// </summary>
     public class ObserverNotifyChange : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void RaisePropertyChanged(string propertyName)
         {
