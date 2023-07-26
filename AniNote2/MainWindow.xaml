@@ -24,7 +24,7 @@
                 HorizontalAlignment="Stretch"
                 Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Image Source="/Assets/SplashScreen.scale-400.png" Margin="5"/>
+                <Image Source="/Assets/AniNote_Icon_Small.png" Margin="5"/>
                 <TextBlock x:Name="AppTitle"
                            FontFamily="{StaticResource Default}"
                            Text="AniNote"

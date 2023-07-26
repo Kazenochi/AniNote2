@@ -15,6 +15,7 @@ using Microsoft.UI.Xaml.Navigation;
 using AniNote2.MVM.ViewModel;
 using AniNote2.Base;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -56,7 +57,7 @@ namespace AniNote2.MVM.View
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            /*
+            
             string searchText = SearchBox.Text;
             MainModel tmpModel = this.DataContext as MainModel;
 
@@ -81,7 +82,6 @@ namespace AniNote2.MVM.View
                     fullCardList = null;
                 }
             }
-            */
         }
 
         private async void ButtonDelete_Click(object sender, RoutedEventArgs e)
