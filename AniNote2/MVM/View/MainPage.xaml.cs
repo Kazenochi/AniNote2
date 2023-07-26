@@ -56,6 +56,7 @@ namespace AniNote2.MVM.View
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            /*
             string searchText = SearchBox.Text;
             MainModel tmpModel = this.DataContext as MainModel;
 
@@ -80,6 +81,7 @@ namespace AniNote2.MVM.View
                     fullCardList = null;
                 }
             }
+            */
         }
 
         private async void ButtonDelete_Click(object sender, RoutedEventArgs e)
