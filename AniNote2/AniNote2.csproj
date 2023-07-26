@@ -10,7 +10,9 @@
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
-    <ApplicationIcon>AniNote_Icon (2).ico</ApplicationIcon>
+    <ApplicationIcon>Assets\AniNote_Icon.ico</ApplicationIcon>
+    <PackageCertificateThumbprint>BF1F706F01E2926BB22E99F4F60AF464D3E29073</PackageCertificateThumbprint>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
@@ -80,7 +82,6 @@
 
   <ItemGroup>
     <Resource Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="AniNote_Icon (2).ico" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-200.png" />

@@ -9,14 +9,14 @@
 
   <Identity
     Name="5a003ca3-e25e-4dbf-ac1f-eb25b70aba3f"
-    Publisher="CN=Comma"
+    Publisher="CN=Kaze"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="5a003ca3-e25e-4dbf-ac1f-eb25b70aba3f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>AniNote2</DisplayName>
-    <PublisherDisplayName>Comma</PublisherDisplayName>
+    <PublisherDisplayName>Kaze</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
