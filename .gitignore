@@ -362,3 +362,15 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /PortHelper/PortHelper.csproj
+/PortHelper/app.manifest
+/PortHelper/App.xaml
+/PortHelper/MainWindow.xaml
+/PortHelper/Package.appxmanifest
+/PortHelper/Properties/launchSettings.json
+/PortHelper/Assets/LockScreenLogo.scale-200.png
+/PortHelper/Assets/SplashScreen.scale-200.png
+/PortHelper/Assets/Square150x150Logo.scale-200.png
+/PortHelper/Assets/Square44x44Logo.scale-200.png
+/PortHelper/Assets/Square44x44Logo.targetsize-24_altform-unplated.png
+/PortHelper/Assets/StoreLogo.png
+/PortHelper/Assets/Wide310x150Logo.scale-200.png
