@@ -29,18 +29,29 @@ namespace AniNote2.MVM.View
 
         public AddItemView(AnimeItem animeItem, MainWindow MW)
         {
-            this.InitializeComponent();
             this.AnimeItem = animeItem;
-            this.DataContext = AnimeItem;
             this._mainWindow = MW;
+            this.InitializeComponent();
+            this.DataContext = AnimeItem;
+            
         }
 
-        private void RadioButtons_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ButtonImage_Click(object sender, RoutedEventArgs e)
         {
-            RadioButtons rb = (RadioButtons)sender;
-            string dayofweek = rb.SelectedItem as string;
+            StorageFile file = await FilePickHelper.SingleFile(_mainWindow);
+            if (file != null)
+            {
+                AnimeItem.Image = ImageHelper.load(file.Path);
+            }
+        }
 
-            switch (dayofweek) { 
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+            string dayofweek = radioButton.Content.ToString();
+
+            switch (dayofweek)
+            {
                 case "Monday":
                     AnimeItem.AirDay = DayOfWeek.Monday;
                     break;
@@ -62,15 +73,6 @@ namespace AniNote2.MVM.View
                 case "Sunday":
                     AnimeItem.AirDay = DayOfWeek.Sunday;
                     break;
-            }
-        }
-
-        private async void ButtonImage_Click(object sender, RoutedEventArgs e)
-        {
-            StorageFile file = await FilePickHelper.SingleFile(_mainWindow);
-            if (file != null)
-            {
-                AnimeItem.Image = ImageHelper.load(file.Path);
             }
         }
     }

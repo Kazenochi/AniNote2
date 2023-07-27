@@ -103,15 +103,14 @@
                 <TextBlock Text="Airing day"
                                FontSize="35"
                                FontWeight="bold"/>
-                <RadioButtons SelectedIndex="0"
-                          SelectionChanged="RadioButtons_SelectionChanged">
-                    <x:String>Monday</x:String>
-                    <x:String>Tuesday</x:String>
-                    <x:String>Wednesday</x:String>
-                    <x:String>Thursday</x:String>
-                    <x:String>Friday</x:String>
-                    <x:String>Saturday</x:String>
-                    <x:String>Sunday</x:String>
+                <RadioButtons>
+                    <RadioButton Content="Monday" IsChecked="True" Checked="RadioButton_Checked" FontFamily="{StaticResource Default}" FontWeight="Bold" FontSize="20" Padding="10,2"/>
+                    <RadioButton Content="Tuesday" Checked="RadioButton_Checked" FontFamily="{StaticResource Default}" FontWeight="Bold" FontSize="20" Padding="10,2"/>
+                    <RadioButton Content="Wednesday" Checked="RadioButton_Checked" FontFamily="{StaticResource Default}" FontWeight="Bold" FontSize="20" Padding="10,2"/>
+                    <RadioButton Content="Thursday" Checked="RadioButton_Checked" FontFamily="{StaticResource Default}" FontWeight="Bold" FontSize="20" Padding="10,2"/>
+                    <RadioButton Content="Friday" Checked="RadioButton_Checked" FontFamily="{StaticResource Default}" FontWeight="Bold" FontSize="20" Padding="10,2"/>
+                    <RadioButton Content="Saturday" Checked="RadioButton_Checked" FontFamily="{StaticResource Default}" FontWeight="Bold" FontSize="20" Padding="10,2"/>
+                    <RadioButton Content="Sunday" Checked="RadioButton_Checked" FontFamily="{StaticResource Default}" FontWeight="Bold" FontSize="20" Padding="10,2"/>
                 </RadioButtons>
             </StackPanel>
 

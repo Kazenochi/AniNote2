@@ -16,6 +16,7 @@ using AniNote2.MVM.ViewModel;
 using AniNote2.Base;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using Windows.Foundation.Metadata;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -90,11 +91,11 @@ namespace AniNote2.MVM.View
             ContentDialog dialog2 = new ContentDialog();
             dialog2.XamlRoot = this.XamlRoot;
             dialog2.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
-            dialog2.Title = $"Delete \"{dataContext.selectedInfoModel.SelectedItem.Title}\"? This is irreversible!";
+            dialog2.Title = $"Delete? This is irreversible!";
             dialog2.PrimaryButtonText = "No";
             dialog2.SecondaryButtonText = "Yes";
             dialog2.DefaultButton = ContentDialogButton.Primary;
-
+            dialog2.Content = new CustomContentDialog($"You are about to delete: \"{dataContext.selectedInfoModel.SelectedItem.Title}\"\nAre you sure?");
             var result = await dialog2.ShowAsync();
             if (result == ContentDialogResult.Secondary)
             {

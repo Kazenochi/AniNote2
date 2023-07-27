@@ -46,6 +46,7 @@
     <None Remove="MVM\View\AddItemView.xaml" />
     <None Remove="MVM\View\AnimeListView.xaml" />
     <None Remove="MVM\View\CardView.xaml" />
+    <None Remove="MVM\View\CustomContentDialog.xaml" />
     <None Remove="MVM\View\MainPage.xaml" />
     <None Remove="MVM\View\SelectedInfoView.xaml" />
     <None Remove="Resources\Icons_Arrow_ClockRotation.png" />
@@ -242,6 +243,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Icons.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MVM\View\CustomContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MVM\View\MainPage.xaml">
