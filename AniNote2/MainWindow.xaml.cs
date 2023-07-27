@@ -36,8 +36,6 @@ namespace AniNote2
         public MainWindow()
         {
             this.InitializeComponent();
-            
-
             Debug.WriteLine("Marker: App Init Start");
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
@@ -45,7 +43,6 @@ namespace AniNote2
             model = new MainModel(this);
             mainPage.DataContext = model;
             AppWindow.Closing += AppWindow_Closing;
-            //Thread.Sleep(2000);
             Debug.WriteLine("Marker: App Init Finished");
         }
 

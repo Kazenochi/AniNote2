@@ -13,7 +13,7 @@ namespace AniNote2.MVM.ViewModel
 {
     public class MainModel : ObserverNotifyChange
     {
-        private readonly MainWindow _mainWindow;
+        private MainWindow _mainWindow;
         public AnimeListView animeListView { get; set; } = new();
         public AnimeListModel animeListModel { get; set; }
         public SelectedInfoView selectedInfoView { get; set; } = new();

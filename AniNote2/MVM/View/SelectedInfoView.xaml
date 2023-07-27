@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DataContext="{d:DesignInstance Type=vm:SelectedInfoModel}"
     FontFamily="{StaticResource Default}"
+    FontWeight="Bold"
     mc:Ignorable="d">
     <UserControl.Resources>
         <CommandBarFlyout Placement="Right" x:Name="CommandBarFlyout1">
@@ -53,6 +54,8 @@
                             Background="{StaticResource SystemAccentColorLight1}" 
                             VerticalAlignment="Center" 
                             HorizontalAlignment="Center"
+                            ToolTipService.ToolTip="Change image"
+                            ToolTipService.Placement="Top"
                             Command="{Binding ChangeLocalCommand}">
                         <Viewbox>
                             <FontIcon Glyph="&#xE70F;"/>
@@ -83,15 +86,8 @@
                                    IsClearEnabled="False"
                                    IsEnabled="{Binding ElementName=ToggleSwitch, Path=IsOn}"
                                    IsReadOnly="False"/>
-                    
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Edit Mode" VerticalAlignment="Center" Margin="0,0,15,0"/>
-                        <ToggleSwitch x:Name="ToggleSwitch"
-                                      IsOn="{Binding EditMode}" 
-                                      VerticalAlignment="Bottom"/>
-                    </StackPanel>
-                    
-                    <Grid HorizontalAlignment="Stretch">
+
+                        <Grid HorizontalAlignment="Stretch">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -123,7 +119,7 @@
                         <Border Grid.Row="1"
                                 Grid.Column="1"
                                 Height="30"
-                                Background="#202020" 
+                                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
                                 CornerRadius="15">
                             <TextBlock Margin="11,0,0,0"
                                        VerticalAlignment="Center"
@@ -143,7 +139,14 @@
                                    Minimum="0"/>
                     </Grid>
                     
-                    <StackPanel x:Name="ConfigPanel"
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Edit Mode" VerticalAlignment="Center" Margin="0,0,15,0"/>
+                            <ToggleSwitch x:Name="ToggleSwitch"
+                                      IsOn="{Binding EditMode}" 
+                                      VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    
+                        <StackPanel x:Name="ConfigPanel"
                                 Visibility="{Binding ElementName=ToggleSwitch, Path=IsOn}">
                         <Grid Margin="0,10">
                             <Grid.RowDefinitions>
@@ -155,7 +158,7 @@
                                        FontWeight="Bold"/>
                             <TextBox Grid.Row="1"
                                      Text="{Binding SelectedItem.Title, Mode=TwoWay}"
-                                     PlaceholderText="Show Title"
+                                     PlaceholderText="Showtitle"
                                      HorizontalAlignment="Left"
                                      Width="300"
                                      Height="30"

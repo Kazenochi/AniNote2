@@ -27,7 +27,9 @@
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center"
                     Click="ButtonImage_Click"
-                    CornerRadius="25">
+                    CornerRadius="25"
+                    ToolTipService.ToolTip="Click to change image"
+                    ToolTipService.Placement="Mouse">
                 <Grid CornerRadius="20">
                     <Viewbox Height="100">
                         <FontIcon Glyph="&#xE8B9;"/>
@@ -41,29 +43,37 @@
 
                     <StackPanel Spacing="10" Margin="20,0">
                         <TextBlock Text="Title/Name"
-                               FontWeight="Bold"
-                               FontSize="35"/>
+                                   Margin="10,0,0,2"
+                                   FontWeight="Bold"
+                                   FontSize="35"/>
                         <TextBox FontSize="20" 
                                  CornerRadius="20"
-                                 Text="{Binding Title, Mode=TwoWay}"/>
+                                 Text="{Binding Title, Mode=TwoWay}"
+                                 Padding="15,6"/>
+
+
                     </StackPanel>
 
                     <StackPanel Spacing="10" Margin="20,0">
                         <TextBlock Text="Url 1"
-                               FontSize="35"
-                               FontWeight="bold"/>
+                                   Margin="10,0,0,2"
+                                   FontSize="35"
+                                   FontWeight="bold"/>
                         <TextBox FontSize="20" 
                                  CornerRadius="20"
-                                 Text="{Binding Url1, Mode=TwoWay}"/>
+                                 Text="{Binding Url1, Mode=TwoWay}"
+                                 Padding="15,6"/>
                     </StackPanel>
 
                     <StackPanel Spacing="10" Margin="20,0">
                         <TextBlock Text="Url 2"
-                               FontSize="35"
-                               FontWeight="bold"/>
+                                   Margin="10,0,0,2"
+                                   FontSize="35"
+                                   FontWeight="bold"/>
                         <TextBox FontSize="20" 
                                  CornerRadius="20"
-                                 Text="{Binding Url2, Mode=TwoWay}"/>
+                                 Text="{Binding Url2, Mode=TwoWay}"
+                                 Padding="15,6"/>
                     </StackPanel>
 
                     <StackPanel Spacing="10" Margin="20,0">
@@ -90,7 +100,7 @@
             </Grid>
 
             <StackPanel Grid.Row="1" Spacing="10" Margin="20,20">
-                <TextBlock Text="AirDay"
+                <TextBlock Text="Airing day"
                                FontSize="35"
                                FontWeight="bold"/>
                 <RadioButtons SelectedIndex="0"

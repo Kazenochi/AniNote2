@@ -37,13 +37,11 @@ namespace AniNote2.MVM.ViewModel
         private string _url3;
         public string Url3 { get { return _url3; } set { _url3 = value; RaisePropertyChanged(nameof(Url3)); } }
 
-        private int _rating;
+        private int _rating = 0;
         public int Rating { get { return _rating; } set { _rating = value; RaisePropertyChanged(nameof(Rating)); } }
 
         private DayOfWeek _airDay = DayOfWeek.Monday;
         public DayOfWeek AirDay { get { return _airDay; } set { _airDay = value; RaisePropertyChanged(nameof(AirDay)); } }
 
-        public AnimeItem() { 
-        }
     }
 }

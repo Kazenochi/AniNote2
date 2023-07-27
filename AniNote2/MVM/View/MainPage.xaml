@@ -10,6 +10,8 @@
     mc:Ignorable="d"
     Background="Transparent"
     FontSize="15"
+    FontFamily="{StaticResource Default}"
+    FontWeight="Bold"
     d:DataContext="{d:DesignInstance Type=vm:MainModel}">
 
     <Grid x:Name="RootPanel">
@@ -38,6 +40,8 @@
                             Height="50" Width="50"  
                             Command="{Binding AddCommand}" 
                             VerticalAlignment="Bottom"
+                            ToolTipService.ToolTip="Add new Item"
+                            ToolTipService.Placement="Top"
                             Style="{StaticResource AccentButtonStyle}">
                         <Viewbox>
                             <FontIcon Glyph="&#xF8AA;"/>
@@ -48,6 +52,8 @@
                             CornerRadius="25" 
                             Height="50" Width="50" 
                             VerticalAlignment="Bottom"
+                            ToolTipService.ToolTip="Search item"
+                            ToolTipService.Placement="Top"
                             Style="{StaticResource AccentButtonStyle}">
                         <Viewbox>
                             <FontIcon Glyph="&#xF78B;"/>
@@ -67,6 +73,8 @@
                             Height="50" Width="50" 
                             VerticalAlignment="Bottom"
                             Click="ButtonDelete_Click"
+                            ToolTipService.ToolTip="Delete selected item"
+                            ToolTipService.Placement="Top"
                             Background="{StaticResource SystemAccentColorLight1}"
                             Style="{StaticResource AccentButtonStyle}">
                         <Viewbox>
@@ -108,6 +116,8 @@
                             Height="50" Width="50" 
                             VerticalAlignment="Bottom" Padding="0,0,5,0"
                             Click="ButtonBack_Click"
+                            ToolTipService.ToolTip="Go back"
+                            ToolTipService.Placement="Top"
                             Style="{StaticResource AccentButtonStyle}">
                         <Viewbox>
                             <FontIcon Glyph="&#xE973;"/>
@@ -119,6 +129,8 @@
                             Height="50" Width="50" 
                             Command="{Binding SaveCommand}" 
                             VerticalAlignment="Bottom"
+                            ToolTipService.ToolTip="Save the current item and add it to the list"
+                            ToolTipService.Placement="Top"
                             Style="{StaticResource AccentButtonStyle}">
                         <Viewbox>
                             <FontIcon Glyph="&#xE74E;"/>
