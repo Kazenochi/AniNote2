@@ -2,8 +2,10 @@
 using Microsoft.UI.Xaml.Media.Imaging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,8 +26,17 @@ namespace AniNote2.Base
         public static BitmapImage load(String Path)
         {
             BitmapImage bitmapImage = new BitmapImage();
-            bitmapImage.UriSource = new Uri(Path);
+            try
+            {
+                bitmapImage.UriSource = new Uri(Path);
+            }
+            catch(ArgumentNullException ex)
+            {
+                Debug.WriteLine($"Image could not be loaded:{ex.Message}");
+            }
+            
             return bitmapImage;          
         }
+
     }
 }

@@ -39,7 +39,6 @@ namespace AniNote2.MVM.View
         {
             if (CardGridView.Items.Count > 0)
             {
-                // Set the first item as selected (you can customize this based on your requirements)
                 CardGridView.SelectedIndex = 0;
             }
         }

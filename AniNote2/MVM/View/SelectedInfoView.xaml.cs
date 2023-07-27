@@ -14,6 +14,8 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using static System.Net.Mime.MediaTypeNames;
 using AniNote2.MVM.ViewModel;
+using AniNote2.Base;
+using Windows.ApplicationModel.DataTransfer;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -38,7 +40,7 @@ namespace AniNote2.MVM.View
         {
             FlyoutShowOptions myOption = new FlyoutShowOptions();
             myOption.ShowMode = isTransient ? FlyoutShowMode.Transient : FlyoutShowMode.Standard;
-            CommandBarFlyout1.ShowAt(AnimeImage, myOption);
+            CommandBarFlyout1.ShowAt(CardImage, myOption);
         }
 
         private void MyImageButton_ContextRequested(Microsoft.UI.Xaml.UIElement sender, ContextRequestedEventArgs args)
@@ -78,6 +80,12 @@ namespace AniNote2.MVM.View
                         break;
                 }
             }
+        }
+        [STAThread]
+        private void ButtonClipBoard_Click(object sender, RoutedEventArgs e)
+        {
+            var item = (this.DataContext as SelectedInfoModel).SelectedItem;
+            ExcelHelper.ToClipBoard(item);
         }
     }
 }

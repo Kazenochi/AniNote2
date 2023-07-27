@@ -75,7 +75,18 @@
                                  Text="{Binding Url2, Mode=TwoWay}"
                                  Padding="15,6"/>
                     </StackPanel>
-
+                    
+                    <StackPanel Spacing="10" Margin="20,0">
+                        <TextBlock Text="Online image link"
+                                   Margin="10,0,0,2"
+                                   FontSize="35"
+                                   FontWeight="bold"/>
+                        <TextBox FontSize="20" 
+                                 CornerRadius="20"
+                                 Text="{Binding OnlineImage, Mode=TwoWay}"
+                                 Padding="15,6"/>
+                    </StackPanel>
+                    
                     <StackPanel Spacing="10" Margin="20,0">
                         <TextBlock Text="Episode count"
                                    FontSize="35"

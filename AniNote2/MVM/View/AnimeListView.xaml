@@ -14,7 +14,7 @@
         <GridView x:Name="CardGridView" 
                   Margin="5"
                   Loaded="ContentGridView_Loaded"
-                  ItemsSource="{Binding List}"
+                  ItemsSource="{Binding List, Mode=TwoWay}"
                   IsItemClickEnabled="True"
                   ItemClick="ContentGridView_ItemClick"
                   CanDragItems="True"

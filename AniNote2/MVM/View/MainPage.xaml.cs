@@ -38,16 +38,17 @@ namespace AniNote2.MVM.View
 
         private async void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog dialog = new ContentDialog();
-
-            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
-            dialog.XamlRoot = this.XamlRoot;
-            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
-            dialog.Title = "Quit? All changes will be lost!";
-            dialog.PrimaryButtonText = "No";
-            dialog.SecondaryButtonText = "Yes";
-            //dialog.CloseButtonText = "Cancel";
-            dialog.DefaultButton = ContentDialogButton.Primary;
+            ContentDialog dialog = new()
+            {
+                // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+                XamlRoot = this.XamlRoot,
+                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
+                Title = "Quit? All changes will be lost!",
+                PrimaryButtonText = "No",
+                SecondaryButtonText = "Yes",
+                //dialog.CloseButtonText = "Cancel";
+                DefaultButton = ContentDialogButton.Primary
+            };
 
             var result = await dialog.ShowAsync();
             if(result == ContentDialogResult.Secondary)
@@ -58,11 +59,9 @@ namespace AniNote2.MVM.View
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
             string searchText = SearchBox.Text;
-            MainModel tmpModel = this.DataContext as MainModel;
 
-            if (tmpModel == null) { return; }
+            if (this.DataContext is not MainModel tmpModel) { return; }
             if (!_searchActive)
             {
                 fullCardList = new ObservableCollection<AnimeItem>(tmpModel.animeListModel.List);
@@ -71,7 +70,7 @@ namespace AniNote2.MVM.View
             if (searchText.Length > 0)
             {
                 _searchActive = true;
-                ObservableCollection<AnimeItem> filteredList = new ObservableCollection<AnimeItem>(SearchHelper.GetSearchResult(fullCardList, searchText));
+                ObservableCollection<AnimeItem> filteredList = new(SearchHelper.GetSearchResult(fullCardList, searchText));
                 tmpModel.animeListModel.List = filteredList;
             }
             else if (_searchActive)
@@ -88,14 +87,16 @@ namespace AniNote2.MVM.View
         private async void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
             var dataContext = this.DataContext as MainModel;
-            ContentDialog dialog2 = new ContentDialog();
-            dialog2.XamlRoot = this.XamlRoot;
-            dialog2.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
-            dialog2.Title = $"Delete? This is irreversible!";
-            dialog2.PrimaryButtonText = "No";
-            dialog2.SecondaryButtonText = "Yes";
-            dialog2.DefaultButton = ContentDialogButton.Primary;
-            dialog2.Content = new CustomContentDialog($"You are about to delete: \"{dataContext.selectedInfoModel.SelectedItem.Title}\"\nAre you sure?");
+            ContentDialog dialog2 = new()
+            {
+                XamlRoot = this.XamlRoot,
+                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
+                Title = $"Delete? This is irreversible!",
+                PrimaryButtonText = "No",
+                SecondaryButtonText = "Yes",
+                DefaultButton = ContentDialogButton.Primary,
+                Content = new CustomContentDialog($"You are about to delete: \"{dataContext.selectedInfoModel.SelectedItem.Title}\"\nAre you sure?")
+            };
             var result = await dialog2.ShowAsync();
             if (result == ContentDialogResult.Secondary)
             {

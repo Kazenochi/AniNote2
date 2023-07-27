@@ -27,8 +27,6 @@
                    Source="{Binding Image}"/>
         </Border>
 
-
-
         <StackPanel Grid.Column = "1" 
                     Margin = "10,0" 
                     HorizontalAlignment="Stretch" 

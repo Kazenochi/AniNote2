@@ -15,7 +15,6 @@
         <CommandBarFlyout Placement="Right" x:Name="CommandBarFlyout1">
             <AppBarButton Label="Local" Icon="Edit" ToolTipService.ToolTip="Local path" Command="{Binding ChangeLocalCommand}"/>
             <AppBarButton Label="Internet" Icon="Globe" ToolTipService.ToolTip="Internet url" Command="{Binding ChangeInternetCommand}"/>
-            <AppBarButton Label="Delete" Icon="Delete" ToolTipService.ToolTip="Delete" Command="{Binding DeleteEntryCommand}"/>
         </CommandBarFlyout>
     </UserControl.Resources>
     <Border Width="320">
@@ -33,7 +32,7 @@
                     MinHeight="50"
                     MinWidth="50"
                     Padding="0">
-                <Image x:Name="AnimeImage" 
+                <Image x:Name="CardImage" 
                        Stretch="UniformToFill" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Center" 
@@ -62,16 +61,18 @@
                         </Viewbox>
                     </Button>
                 </Border>
+            
                 <Grid Grid.Row="1">
-                <StackPanel>
+                    <StackPanel>
 
-                    <TextBlock FontSize="30" 
+                        <TextBlock FontSize="30" 
                                MaxHeight="100" 
                                FontWeight="Bold"
                                TextTrimming="CharacterEllipsis" 
                                TextWrapping="WrapWholeWords" 
                                Text="{Binding SelectedItem.Title}"/>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Spacing="2" Margin="0,10">
+                    
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Spacing="3" Margin="0,10">
                             <Button CornerRadius="15" Content="Mo" Tag="Monday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Monday}"/>
                             <Button CornerRadius="15" Content="Tu" Tag="Tuesday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Tuesday}"/>
                             <Button CornerRadius="15" Content="We" Tag="Wednesday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Wednesday}"/>
@@ -80,13 +81,26 @@
                             <Button CornerRadius="15" Content="Sa" Tag="Saturday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Saturday}"/>
                             <Button CornerRadius="15" Content="Su" Tag="Sunday" IsEnabled="{Binding SelectedItem.AirDay, Converter={StaticResource BoolToDayConverter}, ConverterParameter=Sunday}"/>
                         </StackPanel>
+                    
+                        <Grid>
+                            <RatingControl HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Margin="0,5,0,0"
+                                           Value="{Binding SelectedItem.Rating, Mode=TwoWay}"
+                                           IsClearEnabled="False"
+                                           IsEnabled="{Binding ElementName=ToggleSwitch, Path=IsOn}"
+                                           IsReadOnly="False"/>
 
-                        <RatingControl HorizontalAlignment="Left"
-                                   Value="{Binding SelectedItem.Rating, Mode=TwoWay}"
-                                   IsClearEnabled="False"
-                                   IsEnabled="{Binding ElementName=ToggleSwitch, Path=IsOn}"
-                                   IsReadOnly="False"/>
-
+                            <Button Height="40" Width="40" 
+                                    HorizontalAlignment="Right" 
+                                    CornerRadius="25"
+                                    Click="ButtonClipBoard_Click">
+                                <Viewbox>
+                                    <FontIcon Glyph="&#xF0E3;"/>
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                    
                         <Grid HorizontalAlignment="Stretch">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -220,11 +234,30 @@
                                      CornerRadius="15"
                                      IsEnabled="True"/>
                         </Grid>
-                    </StackPanel>
+                            
+                            <Grid Margin="0,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Online image path"
+                                       Margin="10,0,0,2"
+                                       FontWeight="Bold"/>
+                                <TextBox Grid.Row="1"
+                                     Text="{Binding SelectedItem.OnlineImage, Mode=TwoWay}"
+                                     PlaceholderText="Path to online image file"
+                                     HorizontalAlignment="Left"
+                                     Width="300"
+                                     Height="30"
+                                     CornerRadius="15"
+                                     IsEnabled="True"/>
+                            </Grid>
+                        </StackPanel>
 
-                    <StackPanel x:Name="LinkPanel"
+                        <StackPanel x:Name="LinkPanel"
                                 Visibility="{Binding ElementName=ToggleSwitch, Path=IsOn, Converter={StaticResource BoolInverter}}">
                             <HyperlinkButton NavigateUri="{Binding SelectedItem.Url1}"
+                                             CornerRadius="15"
                                              Margin="0,10,0,0">
                                 <TextBlock Text="{Binding SelectedItem.Url1}"
                                            MaxHeight="30"
@@ -232,6 +265,7 @@
                                            TextWrapping="WrapWholeWords"/>
                             </HyperlinkButton>
                             <HyperlinkButton NavigateUri="{Binding SelectedItem.Url2}"
+                                             CornerRadius="15"
                                              Margin="0,5,0,0">
                                 <TextBlock Text="{Binding SelectedItem.Url2}"
                                            MaxHeight="30"
@@ -240,7 +274,7 @@
                             </HyperlinkButton>
 
                         </StackPanel>
-                </StackPanel>
+                    </StackPanel>
             </Grid>
         </Grid>
     </ScrollViewer>

@@ -25,7 +25,7 @@ namespace AniNote2.MVM.View
     public sealed partial class AddItemView : UserControl
     {
         public AnimeItem AnimeItem { get; set; }
-        private MainWindow _mainWindow;
+        private readonly MainWindow _mainWindow;
 
         public AddItemView(AnimeItem animeItem, MainWindow MW)
         {

@@ -34,8 +34,8 @@ namespace AniNote2.MVM.ViewModel
         private string _url2;
         public string Url2 { get { return _url2; } set { _url2 = value; RaisePropertyChanged(nameof(Url2)); } }
 
-        private string _url3;
-        public string Url3 { get { return _url3; } set { _url3 = value; RaisePropertyChanged(nameof(Url3)); } }
+        private string _onlineImage;
+        public string OnlineImage { get { return _onlineImage; } set { _onlineImage = value; RaisePropertyChanged(nameof(OnlineImage)); } }
 
         private int _rating = 0;
         public int Rating { get { return _rating; } set { _rating = value; RaisePropertyChanged(nameof(Rating)); } }
@@ -43,5 +43,18 @@ namespace AniNote2.MVM.ViewModel
         private DayOfWeek _airDay = DayOfWeek.Monday;
         public DayOfWeek AirDay { get { return _airDay; } set { _airDay = value; RaisePropertyChanged(nameof(AirDay)); } }
 
+        public void SwitchImageToOnline(bool isOnlineImage, string imagePath = "")
+        {
+            if (_onlineImage == null) return;
+
+            if (isOnlineImage && _onlineImage.Length > 0)
+            {
+                this.Image = ImageHelper.load(OnlineImage); 
+            }
+            else
+            {
+                this.Image = ImageHelper.load(imagePath);
+            }
+        }
     }
 }

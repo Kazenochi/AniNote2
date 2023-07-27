@@ -13,7 +13,7 @@ namespace AniNote2.MVM.ViewModel
 {
     public class MainModel : ObserverNotifyChange
     {
-        private MainWindow _mainWindow;
+        private readonly MainWindow _mainWindow;
         public AnimeListView animeListView { get; set; } = new();
         public AnimeListModel animeListModel { get; set; }
         public SelectedInfoView selectedInfoView { get; set; } = new();
@@ -63,7 +63,11 @@ namespace AniNote2.MVM.ViewModel
         /// </summary>
         private void SaveNewCard()
         {
-            animeListModel.List.Add((AnimeItem)((AddItemView)CustomItemView).DataContext);
+            var tmpItem = (AnimeItem)((AddItemView)CustomItemView).DataContext;
+            if (tmpItem.OnlineImage.Length > 0)
+                tmpItem.SwitchImageToOnline(true);
+
+            animeListModel.List.Add(tmpItem);
             Back();
         }
 
@@ -85,8 +89,8 @@ namespace AniNote2.MVM.ViewModel
         private void ListAdd()
         {
             CustomViewActive = true;
-            AnimeItem tmpAnimeItem = new AnimeItem();
-            AddItemView tmpItemView = new AddItemView(tmpAnimeItem, _mainWindow);
+            AnimeItem tmpAnimeItem = new();
+            AddItemView tmpItemView = new(tmpAnimeItem, _mainWindow);
             CustomItemView = tmpItemView;
         }
     }

@@ -25,7 +25,7 @@ namespace AniNote2.MVM.ViewModel
         private List<DayOfWeek> _weekDays;
         public List<DayOfWeek> WeekDays { get { return _weekDays; } set { _weekDays = value; RaisePropertyChanged(nameof(WeekDays)); } }
 
-        private MainWindow MW;
+        private readonly MainWindow MW;
 
         public SelectedInfoModel(MainWindow mw)
         {
@@ -59,7 +59,7 @@ namespace AniNote2.MVM.ViewModel
 
         private void ChangeImageInternet()
         {
-
+            SelectedItem.SwitchImageToOnline(true);
         }
     }
 }
