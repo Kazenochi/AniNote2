@@ -15,6 +15,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Windows.Input;
@@ -50,7 +51,11 @@ namespace AniNote2
         private void AppWindow_Closing(Microsoft.UI.Windowing.AppWindow sender, Microsoft.UI.Windowing.AppWindowClosingEventArgs args)
         {
             Debug.WriteLine("App closing");
-            SaveHelper.SaveFile(this.model.animeListModel.List);
+            if (this.model.animeListModel.List.Count() < this.model.animeListModel.fullCardList.Count())
+                SaveHelper.SaveFile(this.model.animeListModel.fullCardList);
+            else
+                SaveHelper.SaveFile(this.model.animeListModel.List);
+
             Debug.WriteLine("App Closed");
         }
 

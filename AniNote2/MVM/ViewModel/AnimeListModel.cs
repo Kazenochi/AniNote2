@@ -23,6 +23,8 @@ namespace AniNote2.MVM.ViewModel
         private ObservableCollection<AnimeItem> _list;
         public ObservableCollection<AnimeItem> List { get { return _list; } set { _list = value; RaisePropertyChanged(nameof(List)); } }
 
+        public ObservableCollection<AnimeItem> fullCardList = new();
+
         private SelectedInfoModel _selectedInfoModel;
 
         public AnimeListModel(SelectedInfoModel selectedInfoModel)

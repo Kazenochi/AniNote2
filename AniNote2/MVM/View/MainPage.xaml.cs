@@ -17,6 +17,7 @@ using AniNote2.Base;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Windows.Foundation.Metadata;
+using System.Runtime.CompilerServices;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -29,7 +30,6 @@ namespace AniNote2.MVM.View
     public sealed partial class MainPage : Page
     {
         private bool _searchActive = false;
-        private ObservableCollection<AnimeItem> fullCardList;
 
         public MainPage()
         {
@@ -62,25 +62,28 @@ namespace AniNote2.MVM.View
             string searchText = SearchBox.Text;
 
             if (this.DataContext is not MainModel tmpModel) { return; }
-            if (!_searchActive)
-            {
-                fullCardList = new ObservableCollection<AnimeItem>(tmpModel.animeListModel.List);
-            }
 
-            if (searchText.Length > 0)
+            var tmpFullList = (DataContext as MainModel).animeListModel.fullCardList;
+
+            if (searchText.Length > 0 && !_searchActive)
             {
                 _searchActive = true;
-                ObservableCollection<AnimeItem> filteredList = new(SearchHelper.GetSearchResult(fullCardList, searchText));
-                tmpModel.animeListModel.List = filteredList;
+                tmpFullList = new ObservableCollection<AnimeItem>(tmpModel.animeListModel.List);
+                tmpModel.animeListModel.fullCardList = tmpFullList;
             }
-            else if (_searchActive)
+            if(searchText.Length <= 0 && _searchActive)
             {
                 _searchActive = false;
-                if(fullCardList != null)
-                {
-                    tmpModel.animeListModel.List = fullCardList;
-                    fullCardList = null;
-                }
+                if(tmpFullList != null)
+                    tmpModel.animeListModel.List = tmpFullList;
+
+                tmpFullList = null;
+            }
+             
+            if (_searchActive)
+            {
+                ObservableCollection<AnimeItem> filteredList = new(SearchHelper.GetSearchResult(tmpFullList, searchText));
+                tmpModel.animeListModel.List = filteredList;
             }
         }
 
