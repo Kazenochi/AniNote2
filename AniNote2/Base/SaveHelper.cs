@@ -1,4 +1,6 @@
-﻿using AniNote2.MVM.ViewModel;
+﻿using AniNote.MVVM.Models;
+using AniNote.MVVM.ViewModels;
+using AniNote2.MVM.ViewModel;
 using AniNote2.Properties;
 using System;
 using System.Collections.Generic;
@@ -74,6 +76,38 @@ namespace AniNote2.Base
                 Debug.WriteLine($"Load Error: {ex.Message}");
                 return null;
             }
+        }
+
+        public static ObservableCollection<AnimeItem> LoadOldFile(string oldSaveFilePath) 
+        {
+            ObservableCollection<AnimeItem> newAnimeItems = new();
+
+            try
+            {
+                string jsonString = File.ReadAllText(oldSaveFilePath);
+
+                List<ListItemVM> oldAnimeItems = JsonSerializer.Deserialize<List<ListItemVM>>(jsonString);
+                if (oldAnimeItems != null)
+                {
+                    foreach (ListItemVM item in oldAnimeItems)
+                    {
+                        AnimeItem animeItem = new();
+                        animeItem.Title = item.LIM.Name;
+                        animeItem.Url1 = item.LIM.URL;
+                        animeItem.CurrentEpisode = item.LIM.CurrentEpisode;
+                        animeItem.Episodes = item.LIM.EpisodeCount;
+                        animeItem.Finished = item.LIM.Finished;
+                        animeItem.Image = ImageHelper.load(item.LIM.Cover);
+                        newAnimeItems.Add(animeItem);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Load Error: {ex.Message}");
+                return null;
+            }
+            return newAnimeItems;
         }
     }
 }

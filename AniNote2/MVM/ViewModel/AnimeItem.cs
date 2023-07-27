@@ -26,7 +26,7 @@ namespace AniNote2.MVM.ViewModel
         public int Episodes { get { return _episodes; } set { _episodes = value; RaisePropertyChanged(nameof(Episodes)); } }
 
         private int _currentEpisode = 1;
-        public int CurrentEpisode { get { return _currentEpisode; } set { _currentEpisode = value; RaisePropertyChanged(nameof(CurrentEpisode)); } }
+        public int CurrentEpisode { get { return _currentEpisode; } set { _currentEpisode = value; CheckFinished(); RaisePropertyChanged(nameof(CurrentEpisode)); } }
 
         private string _url1;
         public string Url1 { get {return _url1; } set { _url1 = value; RaisePropertyChanged(nameof(Url1)); } }
@@ -43,6 +43,9 @@ namespace AniNote2.MVM.ViewModel
         private DayOfWeek _airDay = DayOfWeek.Monday;
         public DayOfWeek AirDay { get { return _airDay; } set { _airDay = value; RaisePropertyChanged(nameof(AirDay)); } }
 
+        private bool _finished = false;
+        public bool Finished { get { return _finished; } set { _finished = value; RaisePropertyChanged(nameof(Finished)); } }
+
         public void SwitchImageToOnline(bool isOnlineImage, string imagePath = "")
         {
             if (_onlineImage == null) return;
@@ -55,6 +58,12 @@ namespace AniNote2.MVM.ViewModel
             {
                 this.Image = ImageHelper.load(imagePath);
             }
+        }
+
+        private void CheckFinished()
+        {
+            if(CurrentEpisode >= Episodes) Finished = true;
+            else Finished = false;
         }
     }
 }

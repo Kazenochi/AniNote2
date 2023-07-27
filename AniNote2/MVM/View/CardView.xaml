@@ -32,14 +32,14 @@
                     HorizontalAlignment="Stretch" 
                     VerticalAlignment="Center">
             
-            <TextBlock MaxHeight="50"
+            <TextBlock MaxHeight="60"
                        TextWrapping="WrapWholeWords"
                        TextTrimming="CharacterEllipsis"
                        Text = "{Binding Title}" 
                        FontWeight="Bold"
                        FontSize="17"/>
             
-            <Grid Margin="0,2">
+            <Grid Margin="0,1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -48,7 +48,7 @@
                 <TextBlock Grid.Column="0" Text = "Last Episode: " />
                 <TextBlock Grid.Column="1" Text = "{Binding CurrentEpisode}" />
             </Grid>
-            <Grid Margin="0,2">
+            <Grid Margin="0,1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>

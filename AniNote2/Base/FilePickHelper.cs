@@ -12,7 +12,7 @@ namespace AniNote2.Base
 {
     public static class FilePickHelper
     {
-        public static async Task<StorageFile> SingleFile(MainWindow MW)
+        public static async Task<StorageFile> SingleFile(object MW)
         {
             var filePicker = new FileOpenPicker();
 

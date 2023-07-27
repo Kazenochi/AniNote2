@@ -33,6 +33,7 @@ namespace AniNote2
     {
         public MainPage mainPage { get; set; } = new MainPage();
         private readonly MainModel model;
+        private int hiddenCounter = 0;
         public MainWindow()
         {
             this.InitializeComponent();
@@ -51,6 +52,18 @@ namespace AniNote2
             Debug.WriteLine("App closing");
             SaveHelper.SaveFile(this.model.animeListModel.List);
             Debug.WriteLine("App Closed");
+        }
+
+        private void AppTitleBar_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            hiddenCounter++;
+            if( hiddenCounter > 10 ) { HiddenButton.Visibility = Visibility.Visible; }
+        }
+
+        private async void HiddenButton_Click(object sender, RoutedEventArgs e)
+        {
+            var file = await FilePickHelper.SingleFile(this);
+            model.animeListModel.List = SaveHelper.LoadOldFile(file.Path);
         }
     }
 }

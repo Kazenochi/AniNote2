@@ -23,6 +23,7 @@
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
                 Grid.ColumnSpan="2">
+            
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Image Source="/Assets/AniNote_Icon_Small.png" Margin="5"/>
                 <TextBlock x:Name="AppTitle"
@@ -32,12 +33,21 @@
                            FontSize="20"
                            VerticalAlignment="Center"/>
             </StackPanel>
+            
         </Border>
 
         <ContentControl Grid.Row="1"
                         HorizontalContentAlignment="Stretch"
                         VerticalContentAlignment="Stretch"
-                        Content="{Binding mainPage}"/>
+                        Content="{Binding mainPage}" PointerPressed="AppTitleBar_PointerPressed"/>
+    
+        <Button x:Name="HiddenButton" 
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Opacity="0.1"
+                Visibility="Collapsed" 
+                Click="HiddenButton_Click"/>
     </Grid>
 
 </Window>
