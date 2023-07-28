@@ -1,6 +1,6 @@
 
 
-# <img src="AniNote2/Assets/AniNote_Icon_Small.png" align="right" height="150"> AniNote - Small app to manage your watchlist for animes and other shows.
+# <img src="AniNote2/Assets/AniNote_Icon_Small.png" align="right" height="150"> AniNote - A small app to manage your animes and other shows.
 
 This app was created first and foremost for personal use and as a training for the WinUI 3 framework.
 
