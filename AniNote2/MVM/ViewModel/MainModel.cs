@@ -64,7 +64,7 @@ namespace AniNote2.MVM.ViewModel
         private void SaveNewCard()
         {
             var tmpItem = (AnimeItem)((AddItemView)CustomItemView).DataContext;
-            if (tmpItem.OnlineImage.Length > 0)
+            if (tmpItem.OnlineImage != null && tmpItem.OnlineImage.Length > 0)
                 tmpItem.SwitchImageToOnline(true);
 
             animeListModel.List.Add(tmpItem);

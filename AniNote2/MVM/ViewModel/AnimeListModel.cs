@@ -25,6 +25,9 @@ namespace AniNote2.MVM.ViewModel
 
         public ObservableCollection<AnimeItem> fullCardList = new();
 
+        private bool _smallViewActive = false;
+        public bool SmallViewActive { get { return _smallViewActive; } set { _smallViewActive = value; RaisePropertyChanged(nameof(SmallViewActive)); } }
+
         private SelectedInfoModel _selectedInfoModel;
 
         public AnimeListModel(SelectedInfoModel selectedInfoModel)

@@ -6,6 +6,7 @@
     xmlns:base="using:AniNote2.Base">
 
     <base:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
+    <base:BoolVisibilityInverter x:Key="BoolVisibilityInverter"/>
     <base:BoolInverter x:Key="BoolInverter"/>
     <base:BoolToDayConverter x:Key="BoolToDayConverter"/>
     <FontFamily x:Key="Default">/Assets/Nunito-VariableFont_wght.ttf#Nunito</FontFamily>

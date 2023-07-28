@@ -35,6 +35,8 @@ namespace AniNote2
         public MainPage mainPage { get; set; } = new MainPage();
         private readonly MainModel model;
         private int hiddenCounter = 0;
+
+
         public MainWindow()
         {
             this.InitializeComponent();

@@ -27,4 +27,20 @@ namespace AniNote2.Base
         }
 
     }
+
+    class BoolVisibilityInverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            bool boolValue = (bool)value;
+            boolValue = (parameter != null) ? !boolValue : boolValue;
+            return boolValue ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+
+    }
 }

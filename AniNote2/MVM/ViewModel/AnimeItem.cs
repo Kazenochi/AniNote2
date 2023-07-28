@@ -23,7 +23,7 @@ namespace AniNote2.MVM.ViewModel
         public string Title { get { return _title; } set { _title = value; RaisePropertyChanged(nameof(Title)); } }
 
         private int _episodes = 12;
-        public int Episodes { get { return _episodes; } set { _episodes = value; RaisePropertyChanged(nameof(Episodes)); } }
+        public int Episodes { get { return _episodes; } set { _episodes = value; CheckFinished(); RaisePropertyChanged(nameof(Episodes)); } }
 
         private int _currentEpisode = 1;
         public int CurrentEpisode { get { return _currentEpisode; } set { _currentEpisode = value; CheckFinished(); RaisePropertyChanged(nameof(CurrentEpisode)); } }
