@@ -21,12 +21,33 @@
                   AllowDrop="True"
                   CanReorderItems="True"
                   SelectionMode="Single"        
-                  FlowDirection="LeftToRight">
+                  FlowDirection="LeftToRight"
+                  Visibility="{Binding SmallViewActive, Converter={StaticResource BoolVisibilityInverter}}">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:CardView">
                     <local:CardView/>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+
+        <GridView x:Name="CardGridViewSmall" 
+                  Margin="5"
+                  Loaded="ContentGridView_Loaded"
+                  ItemsSource="{Binding List, Mode=TwoWay}"
+                  IsItemClickEnabled="True"
+                  ItemClick="ContentGridView_ItemClick"
+                  CanDragItems="True"
+                  AllowDrop="True"
+                  CanReorderItems="True"
+                  SelectionMode="Single"        
+                  FlowDirection="LeftToRight"
+                  Visibility="{Binding SmallViewActive, Converter={StaticResource BoolVisibilityConverter}}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:CardViewSmall">
+                    <local:CardViewSmall/>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        
     </Grid>
 </UserControl>

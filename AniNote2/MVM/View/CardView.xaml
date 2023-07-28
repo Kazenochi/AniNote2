@@ -21,10 +21,21 @@
         <Border CornerRadius="10"
                 Height="110"
                 Width="80">
-            <Image VerticalAlignment="Center" 
+            <Grid>
+                <Image VerticalAlignment="Center" 
                    HorizontalAlignment="Center"
                    Stretch="UniformToFill"
                    Source="{Binding Image}"/>
+                <Ellipse VerticalAlignment="Top"
+                         HorizontalAlignment="Right"
+                         Margin="5"
+                         Visibility="{Binding Finished}"
+                         Fill="{ThemeResource SystemAccentColor}" 
+                         Width="20" Height="20" 
+                         StrokeThickness="2" 
+                         Stroke="#202020"/>
+            </Grid>
+
         </Border>
 
         <StackPanel Grid.Column = "1" 

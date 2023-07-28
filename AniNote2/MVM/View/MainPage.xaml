@@ -80,11 +80,25 @@
                             <FontIcon Glyph="&#xE74D;"/>
                         </Viewbox>
                     </Button>
+
+                    <Button Margin="10,0"
+                            CornerRadius="25" 
+                            Height="50" Width="50" 
+                            VerticalAlignment="Bottom"
+                            Click="ButtonResize_Click"
+                            ToolTipService.ToolTip="Delete selected item"
+                            ToolTipService.Placement="Top"
+                            Style="{StaticResource AccentButtonStyle}">
+                        <Viewbox>
+                            <FontIcon Glyph="&#xEA61;"/>
+                        </Viewbox>
+                    </Button>
                 </StackPanel>
             </Border>
         </Grid>
         
-        <ContentControl Grid.Column="1" 
+        <ContentControl x:Name="RightPane"
+                        Grid.Column="1" 
                         Content="{Binding selectedInfoView}" 
                         HorizontalAlignment="Stretch" 
                         Margin="20,10,10,10"/>

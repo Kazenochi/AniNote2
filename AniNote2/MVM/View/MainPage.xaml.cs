@@ -110,5 +110,14 @@ namespace AniNote2.MVM.View
                 }
             }
         }
+
+        private void ButtonResize_Click(object sender, RoutedEventArgs e)
+        {
+            RightPane.Visibility = (RightPane.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
+
+            (DataContext as MainModel).animeListModel.SmallViewActive = ((DataContext as MainModel).animeListModel.SmallViewActive == false) ? true : false;
+
+
+        }
     }
 }
