@@ -25,10 +25,10 @@
 
             <ContentControl Content="{Binding animeListView}"/>
 
-            <Border Opacity=".9"
-                    Height="70" 
+            <Border Height="70" 
                     CornerRadius="35" 
                     Margin="20"
+                    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Right">
 
