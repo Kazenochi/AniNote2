@@ -1,16 +1,11 @@
-﻿using AniNote.MVVM.Models;
-using AniNote.MVVM.ViewModels;
+﻿using AniNote.MVVM.ViewModels;
 using AniNote2.MVM.ViewModel;
-using AniNote2.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace AniNote2.Base
 {

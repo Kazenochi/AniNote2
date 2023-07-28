@@ -1,6 +1,5 @@
 ﻿using AniNote.MVVM.Models;
 using AniNote2.Base;
-using System.Windows.Input;
 
 namespace AniNote.MVVM.ViewModels
 {
