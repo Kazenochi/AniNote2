@@ -8,7 +8,7 @@ With AniNote you can manage your animes and shows and never forget, what episode
 Current features are:
 * Overview of all shows you are currently watching
 * Configure on what episode you are and how many the show has
-* Search for an show in the list
+* Searchfunction
 * Quick access through links, to the websites you watch it on
 
 If you want to give it a look, please feel free to download the [latest release](https://github.com/Kazenochi/AniNote2/releases/latest) and I wish you a beautiful day.
