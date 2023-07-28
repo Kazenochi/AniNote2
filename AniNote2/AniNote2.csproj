@@ -48,37 +48,9 @@
     <None Remove="MVM\View\CustomContentDialog.xaml" />
     <None Remove="MVM\View\MainPage.xaml" />
     <None Remove="MVM\View\SelectedInfoView.xaml" />
-    <None Remove="Resources\Icons_Arrow_ClockRotation.png" />
-    <None Remove="Resources\Icons_Cancel.png" />
-    <None Remove="Resources\Icons_Checkmark.png" />
-    <None Remove="Resources\Icons_Day.png" />
-    <None Remove="Resources\Icons_DayNight.png" />
-    <None Remove="Resources\Icons_Delete.png" />
-    <None Remove="Resources\Icons_Denie.png" />
-    <None Remove="Resources\Icons_Folder.png" />
-    <None Remove="Resources\Icons_Minus.png" />
-    <None Remove="Resources\Icons_Monitor.png" />
-    <None Remove="Resources\Icons_Music_Simple.png" />
-    <None Remove="Resources\Icons_Music_Toon.png" />
-    <None Remove="Resources\Icons_Night.png" />
-    <None Remove="Resources\Icons_Off.png" />
-    <None Remove="Resources\Icons_On.png" />
-    <None Remove="Resources\Icons_Pause.png" />
-    <None Remove="Resources\Icons_Picture.png" />
-    <None Remove="Resources\Icons_Picture_Add.png" />
-    <None Remove="Resources\Icons_Play.png" />
-    <None Remove="Resources\Icons_Play_Soft.png" />
-    <None Remove="Resources\Icons_Plus.png" />
-    <None Remove="Resources\Icons_Rename.png" />
-    <None Remove="Resources\Icons_Save.png" />
-    <None Remove="Resources\Icons_Settings.png" />
-    <None Remove="Resources\Icons_Stop.png" />
-    <None Remove="Resources\Icons_Sync.png" />
-    <None Remove="Resources\Icons_Transfer.png" />
-    <None Remove="Resources\Icons_Video.png" />
-    <None Remove="Resources\Icons_Volume_Down.png" />
-    <None Remove="Resources\Icons_Volume_Mute.png" />
-    <None Remove="Resources\Icons_Volume_Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Remove="Themes\Generic.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -110,113 +82,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Icons_Arrow_ClockRotation.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Cancel.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Checkmark.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Day.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_DayNight.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Delete.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Denie.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Folder.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Minus.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Monitor.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Music_Simple.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Music_Toon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Night.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Pause.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Picture.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Picture_Add.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Play.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Play_Soft.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Plus.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Rename.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Save.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Settings.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Stop.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Sync.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Transfer.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Video.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Volume_Down.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Volume_Mute.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icons_Volume_Up.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="LICENSE.txt" />
+    <Resource Include="Themes\Generic.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resource1.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource1.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Icons.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Icons.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -228,10 +101,6 @@
     <EmbeddedResource Update="Properties\Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Properties\Icons.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -261,11 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="MVM\View\AddItemView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Dictionary\ValueDictionary.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
