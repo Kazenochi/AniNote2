@@ -14,6 +14,9 @@
     <PackageCertificateThumbprint>BF1F706F01E2926BB22E99F4F60AF464D3E29073</PackageCertificateThumbprint>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <Nullable>disable</Nullable>
+    <Authors>Kaze</Authors>
+    <PackageIcon>AniNote_Icon_Small.png</PackageIcon>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\SplashScreen.scale-400.png" />
@@ -202,6 +205,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Properties\Resource1.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -227,6 +233,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Icons.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\AniNote_Icon_Small.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MVM\View\CardViewSmall.xaml">
