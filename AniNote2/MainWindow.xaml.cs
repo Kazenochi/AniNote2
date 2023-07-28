@@ -36,7 +36,6 @@ namespace AniNote2
         private readonly MainModel model;
         private int hiddenCounter = 0;
 
-
         public MainWindow()
         {
             this.InitializeComponent();
@@ -53,7 +52,7 @@ namespace AniNote2
         private void AppWindow_Closing(Microsoft.UI.Windowing.AppWindow sender, Microsoft.UI.Windowing.AppWindowClosingEventArgs args)
         {
             Debug.WriteLine("App closing");
-            if (this.model.animeListModel.List.Count() < this.model.animeListModel.fullCardList.Count())
+            if (this.model.animeListModel.List.Count < model.animeListModel.fullCardList.Count)
                 SaveHelper.SaveFile(this.model.animeListModel.fullCardList);
             else
                 SaveHelper.SaveFile(this.model.animeListModel.List);
@@ -61,12 +60,22 @@ namespace AniNote2
             Debug.WriteLine("App Closed");
         }
 
+        /// <summary>
+        /// Activation for hidden import function of old project
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AppTitleBar_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             hiddenCounter++;
             if( hiddenCounter > 10 ) { HiddenButton.Visibility = Visibility.Visible; }
         }
 
+        /// <summary>
+        /// Open hidden filepicker
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void HiddenButton_Click(object sender, RoutedEventArgs e)
         {
             var file = await FilePickHelper.SingleFile(this);

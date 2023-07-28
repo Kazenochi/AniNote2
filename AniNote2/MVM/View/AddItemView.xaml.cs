@@ -41,7 +41,7 @@ namespace AniNote2.MVM.View
             StorageFile file = await FilePickHelper.SingleFile(_mainWindow);
             if (file != null)
             {
-                AnimeItem.Image = ImageHelper.load(file.Path);
+                AnimeItem.Image = ImageHelper.Load(file.Path);
             }
         }
 

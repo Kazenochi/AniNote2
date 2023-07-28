@@ -3,6 +3,9 @@ using System;
 
 namespace AniNote.MVVM.Models
 {
+    /// <summary>
+    /// Old class for Import
+    /// </summary>
     public class ListItemModel : ObserverNotifyChange
     {
         public String Name { get { return _name; } set { _name = value; RaisePropertyChanged(nameof(Name)); } }

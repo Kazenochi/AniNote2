@@ -52,11 +52,11 @@ namespace AniNote2.MVM.ViewModel
 
             if (isOnlineImage && _onlineImage.Length > 0)
             {
-                this.Image = ImageHelper.load(OnlineImage); 
+                this.Image = ImageHelper.Load(OnlineImage); 
             }
             else
             {
-                this.Image = ImageHelper.load(imagePath);
+                this.Image = ImageHelper.Load(imagePath);
             }
         }
 

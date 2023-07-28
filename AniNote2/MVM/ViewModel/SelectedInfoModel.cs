@@ -53,7 +53,7 @@ namespace AniNote2.MVM.ViewModel
             if (file != null )
             {
                 Debug.WriteLine("Success" + file.ToString());
-                SelectedItem.Image = ImageHelper.load(file.Path);
+                SelectedItem.Image = ImageHelper.Load(file.Path);
             }
         }
 

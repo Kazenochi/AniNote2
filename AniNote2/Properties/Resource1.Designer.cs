@@ -61,36 +61,6 @@ namespace AniNote2.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] Bungo {
-            get {
-                object obj = ResourceManager.GetObject("Bungo", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] Healer {
-            get {
-                object obj = ResourceManager.GetObject("Healer", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] Jujugsu {
-            get {
-                object obj = ResourceManager.GetObject("Jujugsu", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ms-appx:///Saves ähnelt.
         /// </summary>
         internal static string SaveDir {

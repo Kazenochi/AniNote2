@@ -16,16 +16,16 @@ namespace AniNote2.Base
     /// </summary>
     public static class ImageHelper
     {
-        public static string BaseDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        private static readonly string BaseDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         public static string GetImageUri(string relativePath)
         {
             return BaseDir + relativePath;
         }
 
-        public static BitmapImage load(String Path)
+        public static BitmapImage Load(String Path)
         {
-            BitmapImage bitmapImage = new BitmapImage();
+            BitmapImage bitmapImage = new();
             try
             {
                 bitmapImage.UriSource = new Uri(Path);

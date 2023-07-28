@@ -32,7 +32,6 @@ namespace AniNote2.Base
                 Debug.WriteLine($"Save Error Directory: {ex.Message}");
             }
             
-
             string jsonString = JsonSerializer.Serialize(animeItems, new JsonSerializerOptions { WriteIndented = true});
             string filePath = SaveDir + "\\Saves\\Cards.json";
             try
@@ -78,6 +77,11 @@ namespace AniNote2.Base
             }
         }
 
+        /// <summary>
+        /// Hidden function for old save files
+        /// </summary>
+        /// <param name="oldSaveFilePath"></param>
+        /// <returns></returns>
         public static ObservableCollection<AnimeItem> LoadOldFile(string oldSaveFilePath) 
         {
             ObservableCollection<AnimeItem> newAnimeItems = new();
@@ -91,13 +95,15 @@ namespace AniNote2.Base
                 {
                     foreach (ListItemVM item in oldAnimeItems)
                     {
-                        AnimeItem animeItem = new();
-                        animeItem.Title = item.LIM.Name;
-                        animeItem.Url1 = item.LIM.URL;
-                        animeItem.CurrentEpisode = item.LIM.CurrentEpisode;
-                        animeItem.Episodes = item.LIM.EpisodeCount;
-                        animeItem.Finished = item.LIM.Finished;
-                        animeItem.Image = ImageHelper.load(item.LIM.Cover);
+                        AnimeItem animeItem = new()
+                        {
+                            Title = item.LIM.Name,
+                            Url1 = item.LIM.URL,
+                            CurrentEpisode = item.LIM.CurrentEpisode,
+                            Episodes = item.LIM.EpisodeCount,
+                            Finished = item.LIM.Finished,
+                            Image = ImageHelper.Load(item.LIM.Cover)
+                        };
                         newAnimeItems.Add(animeItem);
                     }
                 }

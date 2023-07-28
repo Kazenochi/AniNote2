@@ -19,7 +19,7 @@ namespace AniNote2.Base
         public static void ToClipBoard(AnimeItem animeItem) 
         { 
             string singleLine = SingleEntry(animeItem);
-            DataPackage dataPackage = new DataPackage();
+            DataPackage dataPackage = new();
             dataPackage.SetText(singleLine);
             Clipboard.SetContent(dataPackage);
         }

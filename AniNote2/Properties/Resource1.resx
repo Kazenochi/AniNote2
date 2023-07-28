@@ -117,16 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Bungo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\DevAssets\Bungo.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Healer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\DevAssets\Healer.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Jujugsu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\DevAssets\Jujugsu.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="SaveDir" xml:space="preserve">
     <value>ms-appx:///Saves</value>
   </data>

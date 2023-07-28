@@ -23,6 +23,7 @@ namespace AniNote2.MVM.ViewModel
         private ObservableCollection<AnimeItem> _list;
         public ObservableCollection<AnimeItem> List { get { return _list; } set { _list = value; RaisePropertyChanged(nameof(List)); } }
 
+        //Used for search function as "clipboard"
         public ObservableCollection<AnimeItem> fullCardList = new();
 
         private bool _smallViewActive = false;
@@ -30,41 +31,10 @@ namespace AniNote2.MVM.ViewModel
 
         private SelectedInfoModel _selectedInfoModel;
 
-        public AnimeListModel(SelectedInfoModel selectedInfoModel, bool generateDummy = false)
+        public AnimeListModel(SelectedInfoModel selectedInfoModel)
         {
             _list = new ObservableCollection<AnimeItem>();
             _selectedInfoModel = selectedInfoModel;
-
-            if (generateDummy)
-                DesignDummy();
-
-        }
-
-        public void DesignDummy()
-        {
-
-            AnimeItem item1 = new AnimeItem();
-            AnimeItem item2 = new AnimeItem();
-            AnimeItem item3 = new AnimeItem();
-
-            item1.Image = new BitmapImage(new Uri("ms-appx:///DevAssets/Bungo.jpg"));
-            item1.Title = "Title 1";
-            item1.Rating = 3;
-            item1.AirDay = DayOfWeek.Monday;
-
-            item2.Image = new BitmapImage(new Uri("ms-appx:///DevAssets/Healer.jpg"));
-            item2.Title = "Title 2";
-            item2.Rating = 1;
-            item2.AirDay = DayOfWeek.Tuesday;
-
-            item3.Image = new BitmapImage(new Uri("ms-appx:///DevAssets/Jujugsu.jpg"));
-            item3.Title = "Title 3";
-            item3.Rating = 5;
-            item3.AirDay = DayOfWeek.Wednesday;
-
-            List.Add(item1);
-            List.Add(item2);
-            List.Add(item3);
         }
 
         public void ChangeSelection(AnimeItem item)

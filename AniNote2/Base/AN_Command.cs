@@ -46,10 +46,7 @@ namespace AniNote2.Base
 
             public void RaiseCanExecuteChanged()
             {
-                if (CanExecuteChanged != null)
-                {
-                    CanExecuteChanged(this, EventArgs.Empty);
-                }
+                CanExecuteChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 

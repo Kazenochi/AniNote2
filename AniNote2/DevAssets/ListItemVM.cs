@@ -4,6 +4,9 @@ using System.Windows.Input;
 
 namespace AniNote.MVVM.ViewModels
 {
+    /// <summary>
+    /// Old class for import
+    /// </summary>
     public class ListItemVM : ObserverNotifyChange
     {
         public ListItemModel LIM { get; set; }
@@ -37,43 +40,5 @@ namespace AniNote.MVVM.ViewModels
         public bool NewEpisode { get { return _newEpisode; } set { _newEpisode = value; RaisePropertyChanged(nameof(NewEpisode)); } }
         private bool _newEpisode;
 
-
-        /// <summary>
-        /// Toggles the Visibility State of the <see cref="ListItemModel"/>
-        /// </summary>
-        private void StateToggle()
-        {
-            LIM.Open = !LIM.Open;
-        }
-
-        /// <summary>
-        /// Handels the UserInput for Counting the Current Episode up or down
-        /// </summary>
-        /// <param name="updown"></param>
-        private void ChangeEpisodeCount(int updown)
-        {
-            if (updown == 1)
-            {
-                if(LIM.CurrentEpisode < LIM.EpisodeCount)
-                    LIM.CurrentEpisode++;
-            }
-            else
-            {
-                if(LIM.CurrentEpisode > 0)
-                    LIM.CurrentEpisode--;
-            }     
-        }
-
-        public void useDummy()
-        {
-            ListItemModel dummy = new ListItemModel();
-            dummy.Name = "Test Anime 子にちわ。私はアンドレアスです。Nochmal deutlich längerter super cooler langer name von heilege";
-            dummy.Cover = @"D:\VS\Projekte\AniNote\AniNote\Assets\きつね - 狐.png";
-            dummy.URL = "https://www.google.de/";
-            dummy.CurrentEpisode = 6;
-            dummy.EpisodeCount = 24;
-            dummy.Finished = false;
-            LIM = dummy;
-        }
     }
 }
