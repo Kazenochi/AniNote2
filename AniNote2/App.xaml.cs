@@ -19,7 +19,6 @@ namespace AniNote2
         {
             this.InitializeComponent();
             this.UnhandledException += App_UnhandledException;
-            //Fork
         }
 
         private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
