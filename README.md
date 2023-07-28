@@ -4,7 +4,7 @@
 
 This app was created first and foremost for personal use and as a training for the WinUI 3 framework.
 
-With AniNote you can manage your animes and shows and never forget, what episode you are on or when a show is airing.
+With AniNote you can manage your animes and shows and never forget, what episode you are on or when a show is airing. <br/>
 Current features are:
 * Overview of all shows you are currently watching
 * Configure on what episode you are and how many the show has
