@@ -32,7 +32,7 @@
                          Visibility="{Binding Finished}"
                          Fill="{ThemeResource SystemAccentColor}" 
                          Width="15" Height="15" 
-                         StrokeThickness="2" 
+                         StrokeThickness="5" 
                          Stroke="#202020"/>
             </Grid>
         </Border>
