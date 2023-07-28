@@ -30,10 +30,18 @@ namespace AniNote2.MVM.ViewModel
 
         private SelectedInfoModel _selectedInfoModel;
 
-        public AnimeListModel(SelectedInfoModel selectedInfoModel)
+        public AnimeListModel(SelectedInfoModel selectedInfoModel, bool generateDummy = false)
         {
             _list = new ObservableCollection<AnimeItem>();
             _selectedInfoModel = selectedInfoModel;
+
+            if (generateDummy)
+                DesignDummy();
+
+        }
+
+        public void DesignDummy()
+        {
 
             AnimeItem item1 = new AnimeItem();
             AnimeItem item2 = new AnimeItem();
