@@ -86,7 +86,7 @@
                             Height="50" Width="50" 
                             VerticalAlignment="Bottom"
                             Click="ButtonResize_Click"
-                            ToolTipService.ToolTip="Delete selected item"
+                            ToolTipService.ToolTip="Switch ui size"
                             ToolTipService.Placement="Top"
                             Style="{StaticResource AccentButtonStyle}">
                         <Viewbox>
