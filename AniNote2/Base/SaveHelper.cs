@@ -6,6 +6,8 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
+using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace AniNote2.Base
 {
@@ -16,61 +18,33 @@ namespace AniNote2.Base
     {
         private static readonly string SaveDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-        public static void SaveFile(ObservableCollection<AnimeItem> animeItems)
+        public static async void SaveFile(ObservableCollection<AnimeItem> animeItems)
         {
-            try
-            {
-                if (!Directory.Exists(SaveDir + "\\Saves"))
-                    Directory.CreateDirectory(SaveDir + "\\Saves");
-            }catch(Exception ex)
-            {
-                Debug.WriteLine($"Save Error Directory: {ex.Message}");
-            }
-            
-            string jsonString = JsonSerializer.Serialize(animeItems, new JsonSerializerOptions { WriteIndented = true});
-            string filePath = SaveDir + "\\Saves\\Cards.json";
-            try
-            {
-                File.WriteAllText(filePath, jsonString);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Save Error: {ex.Message}");
-            }
-            
+            string fileName = "cards.json";
+            string jsonString = JsonSerializer.Serialize(animeItems, new JsonSerializerOptions { WriteIndented = true });
+            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+            StorageFile storageFile = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(storageFile, jsonString);
         }
 
-        public static ObservableCollection<AnimeItem> LoadFile() 
+        public static async Task<ObservableCollection<AnimeItem>> LoadFile()
         {
+            string fileName = "cards.json";
+            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
             try
             {
-                if (!Directory.Exists(SaveDir + "\\Saves"))
-                    Directory.CreateDirectory(SaveDir + "\\Saves");
+                StorageFile storageFile = await localFolder.GetFileAsync(fileName);
+                string jsonString = await FileIO.ReadTextAsync(storageFile);
+                ObservableCollection<AnimeItem> loadedObject = JsonSerializer.Deserialize<ObservableCollection<AnimeItem>>(jsonString);
+                return loadedObject;
             }
-            catch(Exception ex)
+            catch (FileNotFoundException)
             {
-                Debug.WriteLine($"Load Error Directory: {ex.Message}");
-                return null;
-            }
-
-            string filePath = SaveDir + "\\Saves\\Cards.json";
-            try
-            {
-                string jsonString = File.ReadAllText(filePath);
-
-                ObservableCollection<AnimeItem> animeItems = JsonSerializer.Deserialize<ObservableCollection<AnimeItem>>(jsonString);
-
-                if (animeItems != null)
-                    return animeItems;
-
-                return animeItems = new();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Load Error: {ex.Message}");
                 return null;
             }
         }
+
 
         /// <summary>
         /// Hidden function for old save files

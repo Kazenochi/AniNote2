@@ -41,9 +41,9 @@ namespace AniNote2.MVM.ViewModel
         /// <summary>
         /// Restoring the data state at the start 
         /// </summary>
-        private void StartupLoad()
+        private async void StartupLoad()
         {
-            var tmpFile = SaveHelper.LoadFile();
+            var tmpFile = await SaveHelper.LoadFile();
             if (tmpFile != null)
             {
                 animeListModel.List = tmpFile;
